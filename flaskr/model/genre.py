@@ -15,7 +15,7 @@ class Genre(db.Model):
     """Class describes genre entity"""
     id = db.Column(db.Integer, db.Sequence("genre_id_seq"), primary_key=True)
     title = db.Column(db.String, nullable=False)
-    movie = db.relationship("Movie", secondary=movies_genre, backref="genre")
+
 
     def __repr__(self):
-        return f"Genre(id={self.id}, title={self.title}"
+        return f"Genre(id={self.id}, title={self.title})"

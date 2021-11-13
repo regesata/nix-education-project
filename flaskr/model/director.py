@@ -17,8 +17,7 @@ class Director(db.Model):
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
     date_of_birth = db.Column(db.Date)
-    movie = db.relationship("Movie", secondary=movies_directors, backref="director")
 
     def __repr__(self):
-        return f"Director(i={self.id!r}, first_name={self.first_name!r}, " \
+        return f"Director(id={self.id!r}, first_name={self.first_name!r}, " \
                f"last_name={self.last_name!r}, date_of_birth={self.date_of_birth!r})"
