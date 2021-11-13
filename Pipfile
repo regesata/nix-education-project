@@ -9,6 +9,9 @@ Flask = "*"
 SQLAlchemy = "*"
 flask-sqlalchemy = "*"
 pylint-flask-sqlalchemy = "*"
+marshmallow-sqlalchemy = "*"
+flask-restx = "*"
+bcrypt = "*"
 
 [dev-packages]
 
