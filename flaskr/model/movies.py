@@ -1,6 +1,6 @@
 """Model for movie table"""
 
-from . import db
+from flaskr import db
 class Movie(db.Model):
     """Class describes movie entity"""
     id = db.Column(db.Integer, db.Sequence("movie_id_seq"), primary_key=True)
