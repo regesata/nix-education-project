@@ -1,3 +1,3 @@
-from model import app
+from flaskr import app
 
 app.run(debug=True)

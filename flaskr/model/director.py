@@ -2,7 +2,7 @@
 Model for director table and helper table
 for m-to-m relation with movie table
 """
-from . import db
+from flaskr import db
 # helper table for movie-director m-to-m relationship
 movies_directors = db.Table("movies_directors",
                             db.Column("director_id", db.Integer,

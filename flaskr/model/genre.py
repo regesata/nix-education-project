@@ -2,7 +2,7 @@
 Model for genre table and helper table movie-genre
 for relation m-to-m for movie table
 """
-from . import db
+from flaskr import db
 
 movies_genre = db.Table("movies_genre",
                         db.Column("genre_id", db.Integer,

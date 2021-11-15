@@ -1,5 +1,5 @@
 """Model for role table"""
-from . import db
+from flaskr import db
 
 
 class Role(db.Model):
