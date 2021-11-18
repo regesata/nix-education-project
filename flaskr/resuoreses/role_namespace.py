@@ -3,7 +3,7 @@ from flask_restx import Resource, Namespace, fields
 from flask import request
 from flaskr.model.role_schema import RoleSchema
 from flaskr.model.role import Role
-from flaskr.model import db
+from flaskr import db
 
 role_schm = RoleSchema()
 
