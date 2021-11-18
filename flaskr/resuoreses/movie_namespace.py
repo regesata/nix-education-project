@@ -2,10 +2,11 @@
 
 from flask_restx import Resource, Namespace, fields
 from flask import request
+from flask_login import login_required, current_user
 from flaskr.model.movie import Movie
 from flaskr.model.genre import Genre
 from flaskr.model.director import Director
-from flaskr.model import db
+from flaskr import db
 from flaskr.model.movie_schema import MovieSchema
 
 from .genre_namespace import genre_m
@@ -50,6 +51,7 @@ class AllMovies(Resource):
         paginator = movie.paginate(page, per_page)
         return movie_schm.dump(paginator.items, many=True)
 
+    @login_required
     def post(self):
         """Adds record to movie table from request JSON"""
         json = request.get_json()

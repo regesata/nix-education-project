@@ -3,7 +3,7 @@ from flask_restx import Resource, Namespace, fields
 from flask import request
 from flaskr.model.genre_schema import GenreSchema
 from flaskr.model.genre import Genre
-from flaskr.model import db
+from flaskr import db
 
 genre_schm = GenreSchema()
 api = Namespace('genres', path="//")

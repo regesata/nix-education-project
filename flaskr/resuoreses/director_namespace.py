@@ -4,7 +4,7 @@ from flask_restx import Resource, Namespace, fields
 from flask import request
 from flaskr.model.director_schema import DirectorSchema
 from flaskr.model.director import Director
-from flaskr.model import db
+from flaskr import db
 
 
 director_schm = DirectorSchema()

@@ -1,7 +1,6 @@
 """Model for movie table"""
 
-
-from . import db
+from flaskr import db
 from .genre import movies_genre
 from .director import movies_directors
 
@@ -17,7 +16,7 @@ class Movie(db.Model):
     description = db.Column(db.Text)
     rate = db.Column(db.Integer)
     poster = db.Column(db.Text)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
 
     def __repr__(self):
