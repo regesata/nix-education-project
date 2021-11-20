@@ -11,7 +11,7 @@ class Movie(db.Model):
     id = db.Column(db.Integer, db.Sequence("movie_id_seq"), primary_key=True)
     title = db.Column(db.String(255), nullable=False)
     genre = db.relationship("Genre", secondary=movies_genre, backref="genre")
-    release_year = db.Column(db.Integer)
+    release_date = db.Column(db.Date)
     director = db.relationship("Director", secondary=movies_directors, backref="movie")
     description = db.Column(db.Text)
     rate = db.Column(db.Integer)
