@@ -6,6 +6,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_required, login_user
 from flask_login import current_user, logout_user, AnonymousUserMixin
 from flaskr.model.user_schema import UserSchema
+from flaskr.model.role import Role
+
 from flaskr.resuoreses.movie_namespace import movie_m
 from flaskr.model.user import User
 from flaskr import db
@@ -24,7 +26,7 @@ user_m = api.model('User', {
     'last_name': fields.String(),
     'email': fields.String(),
     'password': fields.String(),
-    'role_id': fields.Integer(),
+    'role': fields.Integer(),
     'created_at': fields.DateTime(),
     'movies': fields.List(fields.Nested(movie_m))
 })
@@ -34,7 +36,7 @@ user_exp_model = api.model('Add User', {
     'first_name': fields.String(),
     'last_name': fields.String(),
     'email': fields.String(),
-    'password': fields.String(),
+    'role': fields.Integer
 })
 user_exp_model_admin = api.inherit('Add by admin', user_exp_model, {
     'role': fields.Integer()
@@ -47,12 +49,23 @@ login_exp_model = api.model('Login', {
 })
 
 
+def is_admin()->bool:
+    """
+    Checks current user role.
+    If admin returns True
+    """
+    if current_user.id == USER_ROLE_ADMIN:
+        return True
+    else:
+        False
+
+
 # pylint: disable=R0201
 @api.route('/user')
 class AllUsers(Resource):
     """Class realize routing for /user endpoint """
     @login_required
-    @api.marshal_with(user_exp_model)
+    @api.marshal_with(user_m)
     @api.doc('Method returns user profile info or all users '
              "if admin is current user")
     @api.doc(responses={401: "Not authorized", 200: "OK"})
@@ -63,8 +76,9 @@ class AllUsers(Resource):
         """
         if not isinstance(current_user, AnonymousUserMixin) and \
                 current_user.role_id == USER_ROLE_ADMIN:
-            return user_schm.dump(User.query.all(), many=True), 200
-        return user_schm.dump(User.query.filter(User.id == current_user.id).first()), 200
+            return user_schm.dump(User.query.join(Role).all(), many=True), 200
+        return user_schm.dump(User.query.join(Role)
+                              .filter(User.id == current_user.id).first()), 200
 
     @api.expect(user_exp_model_admin)
     @api.marshal_with(user_m)

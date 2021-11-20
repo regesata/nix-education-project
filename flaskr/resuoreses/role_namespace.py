@@ -1,17 +1,26 @@
 """Module realize access to roles resource"""
 from flask_restx import Resource, Namespace, fields
 from flask import request
+from flask_login import login_required
 from flaskr.model.role_schema import RoleSchema
 from flaskr.model.role import Role
+from flaskr.resuoreses.user_namespace import is_admin
 from flaskr import db
 
 role_schm = RoleSchema()
 
 api = Namespace('roles', path="//")
-role_m = api.model('Role', {
-    'id': fields.Integer(),
+add_role_m = api.model('Add role', {
     'title': fields.String(),
     'description': fields.String()
+})
+
+role_m = api.inherit('Role', add_role_m, {
+    'id': fields.Integer()
+})
+
+update_role = api.model('Update', {
+    'id': fields.Integer()
 })
 
 
@@ -21,59 +30,80 @@ class AllRoles(Resource):
     """Class realize routing for get and
      post methods """
 
-    @api.doc('Get all roles')
+    @api.param("role_id", "Id for single record")
     @api.marshal_with(role_m)
+    @api.response(200, "OK")
+    @api.response(404, "Not found")
+    @api.response(401, "Unauthorized")
+    @api.response(403, "Forbidden")
+    @login_required
     def get(self):
-        """Get all records from table Roles"""
+        """
+        Get record from table Roles
+        Only administrator can perform it
+        """
+        if not is_admin():
+            return {"error": "Only admin can perform it"}, 403
+        roles = None
+        r_id = int(request.args.get("role_id")) if request.args.get("role_id") \
+            else False
+        if r_id:
+            roles = Role.query.get(r_id)
+            if not roles:
+                return {"error": "Not Found"}, 404
+            return role_schm.dump(roles), 200
+
         roles = Role.query.all()
         return role_schm.dump(roles, many=True), 200
 
-
-    @api.doc('Create role')
+    @api.expect(add_role_m)
+    @api.marshal_with(role_m)
+    @login_required
+    @api.response(401, "Unauthorized")
+    @api.response(201, "Add new record")
+    @api.response(403, "Forbidden")
     def post(self):
         """Creates a new record using json in request"""
+        if not is_admin():
+            return {"error": "Only admin can perform it"}, 403
         role = role_schm.load(request.get_json(), session=db.session)
         db.session.add(role)
         db.session.commit()
         return role_schm.dump(role), 201
 
-
-# pylint: disable=R0201
-@api.route('/role/<int:role_id>')
-class SingleRole(Resource):
-    """Class realizes  routing for single record"""
-
     @api.marshal_with(role_m)
-    def get(self, role_id):
-        """Returns record by id if not found returns JSON
-        with Not found message
-        :param role_id int primary key for record
-        :return JOSN with record content or JSON with Not found message"""
-        role = Role.query.get(role_id)
-        if role is None:
-            return {"error": f"Role:{role_id} not found"}, 404
-        return role_schm.dump(role, many=False), 200
-
-
-    @api.marshal_with(role_m)
-    def put(self, role_id):
-        """Updates record by id
-        :param role_id int id of record
-        :return JSON with updated record or Not found"""
-        role = Role.query.get(role_id)
-        if role is None:
-            return {"error": f"Role:{role_id} not found"}, 404
-        new_role = role_schm.load(request.get_json(force=True),
-                                  session=db.session, instance=role)
-        db.session.add(new_role)
+    @api.expect(update_role)
+    @login_required
+    @api.response(403, "Forbidden")
+    @api.response(401, "Unauthorized")
+    @api.response(404, "Not found")
+    def put(self):
+        """
+        Updates record using JSON data
+        """
+        if not is_admin():
+            return {"error": "Only admin can perform it"}, 403
+        role = Role.query.get(request.json.get("id"))
+        role_new = role_schm.load(request.get_json(), session=db.session, instance=role,
+                                  partial=True)
+        db.session.add(role_new)
         db.session.commit()
-        return role_schm.dump(new_role), 200
+        return role_schm.dump(role), 200
 
-    def delete(self, role_id):
+    @api.response(403, "Forbidden")
+    @api.response(401, "Unauthorized")
+    @api.response(404, "Not found")
+    @api.response(204, "Deleted")
+    @api.param("role_id", "Id for single record")
+    def delete(self):
         """Deletes record by id"""
-        role = Role.query.get(role_id)
+        if not is_admin():
+            return {"error": "Only admin can perform it"}, 403
+        r_id = int(request.args.get("role_id")) if request.args.get("role_id") \
+            else False
+        role = Role.query.get(r_id)
         if role is None:
-            return {"error": f"Role:{role_id} not found"}, 404
+            return {"error": f"Role:{r_id} not found"}, 404
         db.session.delete(role)
         db.session.commit()
         return '', 204
