@@ -1,4 +1,6 @@
 from flask_restx import Api
+import logging
+from flaskr.utils import LOGGER_NAME
 from .role_namespace import api as role_ns
 from .genre_namespace import api as genre_ns
 from .director_namespace import api as director_ns
@@ -10,4 +12,6 @@ api.add_namespace(genre_ns)
 api.add_namespace(director_ns)
 api.add_namespace(movie_ns)
 api.add_namespace(user_ns)
+
+
 
