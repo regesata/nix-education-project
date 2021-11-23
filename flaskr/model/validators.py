@@ -25,9 +25,12 @@ class Validators:
     @classmethod
     def validate_name(cls, name: str) -> bool:
         """Validate method for name or titles"""
+
         if not name:
             return False
-        if 2 > len(name) > 100:
+        print(len (name))
+        if len(name) < 2 or len(name) > 100:
+            print(name)
             return False
         return True
 
@@ -35,7 +38,7 @@ class Validators:
     def validate_date_of_birth(cls, date_of_birth: date) -> bool:
         """Validate method for date of birth"""
 
-        if date_of_birth < date(year=1800, month=1, day=1) or date_of_birth >= date.today():
+        if date_of_birth < date(year=1800, month=1, day=1) or date_of_birth > date.today():
             return False
         if not date_of_birth:
             return False
@@ -52,6 +55,6 @@ class Validators:
     @classmethod
     def validate_rate(cls, rate: int) -> bool:
         """Validate rate. Rate should be between 1 and 10"""
-        if 1 > rate > 10:
+        if rate < 1 or rate > 10:
             return False
         return True

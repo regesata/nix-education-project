@@ -32,10 +32,9 @@ def load_user(user_id):
 
 db.create_all()
 db.session.commit()
-log.info("Database table created")
 migrate = Migrate()
 migrate.init_app(app, db)
-log.info("Application started")
+
 
 
 def init_data():
@@ -59,6 +58,6 @@ def init_data():
     db.session.add(init_director)
     db.session.commit()
     log.info("Database initial data added")
-
+init_data()
 
 

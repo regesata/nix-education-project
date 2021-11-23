@@ -112,10 +112,10 @@ class AllDirectors(Resource):
             d_logger.info("Updated successfully, %r" % director)
             return director_schm.dump(director), 200
         except ValidationError as e:
-            d_logger.exception(INVALID_DATA_STR)
+            d_logger.error(INVALID_DATA_STR)
             return INVALID_DATA_JSON, 400
         except AssertionError as ae:
-            d_logger.exception(INVALID_DATA_STR)
+            d_logger.error(INVALID_DATA_STR, ae.args)
             return INVALID_DATA_JSON, 400
 
 
