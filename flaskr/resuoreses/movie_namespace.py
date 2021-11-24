@@ -2,10 +2,10 @@
 import datetime
 import logging
 from flask_restx import Resource, Namespace, fields
+from flask_restx.errors import abort
 from flask import request
 from marshmallow.exceptions import ValidationError
-from flaskr.utils import INVALID_DATA_JSON, INVALID_DATA_STR, get_logger_fact
-
+from flaskr.utils import INVALID_DATA_JSON, INVALID_DATA_STR, LOGGER_NAME
 from flask_login import login_required, current_user
 from flaskr.model.movie import Movie
 from flaskr.model.genre import Genre
@@ -21,7 +21,7 @@ PER_PAGE_DEFAULT = 10
 movie_schm = MovieSchema()
 
 api = Namespace('movies', path='//')
-log = get_logger_fact(__name__)
+log = logging.getLogger(LOGGER_NAME)
 movie_m = api.model('Movie', {
     'id': fields.Integer(),
     'title': fields.String(),
@@ -50,7 +50,7 @@ put_model = api.model('Update movie', {
 
 
 # pylint: disable=R0201
-@api.route('/movie/')
+@api.route('/movie')
 class AllMovies(Resource):
     """
     Class realize routing GET and POST methods
@@ -171,14 +171,15 @@ class AllMovies(Resource):
             return movie_schm.dump(movie), 201
         except ValidationError:
             log.exception(INVALID_DATA_STR)
-            return INVALID_DATA_JSON, 400
+            return abort(400, **INVALID_DATA_JSON)
 
     @login_required
+    @api.marshal_with(movie_add_model)
     @api.expect(put_model)
     @api.response(401, "Unauthorized")
     @api.response(403, "Forbidden")
     @api.response(404, "Not found")
-    @api.response(500, "Internal error")
+    @api.response(400, INVALID_DATA_STR)
     @api.response(200, "Updated successfully")
     def put(self):
         """
@@ -186,33 +187,32 @@ class AllMovies(Resource):
         Add data in JSON that needed to update
         """
         log.info("User tries to update movie")
-        movie = Movie.query.filter(Movie.id == request.get_json().get("id")).first()
-        if movie.user_id != current_user.id:
-            log.info("User id=%d tries to update movie added by id=%d" % (current_user.id,
-                     movie.user_id))
-            return {"error": "Cant edit."
-                             "This record added by another user"}, 403
+        movie = Movie.query.get(request.json.get("id"))
         if not movie:
             log.info("Movie id=%d not found" % request.get_json().get("id"))
-            return {"error": "Nor found"}, 404
+            return abort(404, error="Not found")
+        if movie.user_id != current_user.id and current_user.role_id != 1 :
+            log.info("User id=%d tries to update movie added by id=%d" % (current_user.id,
+                     movie.user_id))
+            return abort(403, error="Cant edit. This record added by another user")
         directors = request.get_json().get("director")
-        # if directors:
-        #     for director in directors:
-        #         if not Director.query.get(director.get("id")):
-        #             return {"error": f"Director id {director.get('id')} "
-        #                              f"not found"}, 404
+        if directors:
+            for director in directors:
+                if not Director.query.get(director.get("id")):
+                    return abort(404, error="Director not found")
         try:
             movie_schm.load(request.get_json(), session=db.session, instance=movie, partial=True)
+
             db.session.add(movie)
             db.session.commit()
             log.info("Successfully updated id=%d" % movie.id)
-            return {"message": "Successfully updated"}, 200
+            return movie_schm.dump(movie), 200
         except ValidationError:
             log.exception(INVALID_DATA_STR)
-            return INVALID_DATA_JSON, 500
+            return abort(400, **INVALID_DATA_JSON)
         except AssertionError:
             log.exception(INVALID_DATA_STR)
-            return INVALID_DATA_JSON, 500
+            return abort(400, **INVALID_DATA_JSON)
 
 
     @login_required
@@ -223,16 +223,16 @@ class AllMovies(Resource):
     @api.response(204, "Deleted")
     def delete(self):
         """Deletes movie record"""
-        m_id = request.args.get("movie_id")
+        m_id =  int(request.args.get("movie_id"))
         log.info("User tries to delete movie id=%d" % m_id)
         movie = Movie.query.get(m_id)
         if not movie:
             log.info("Movie not found")
-            return {"Error": "Not found"}, 404
+            return abort(404,error="Not found")
         if current_user.id != movie.user_id:
             log.info("User id=%d tries to delete movie added by id=%d" % (current_user.id,
                      movie.user_id))
-            return {"error": "Cant delete. Record added by another user"}, 403
+            return abort(403, error="Cant delete. Record added by another user")
         db.session.delete(movie)
         db.session.commit()
         log.info("Successfully deleted id=%d" % movie.id)

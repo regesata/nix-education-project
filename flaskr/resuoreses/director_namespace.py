@@ -1,6 +1,7 @@
 """Module realize routing for director resource"""
 import logging
 from flask_restx import Resource, Namespace, fields
+from flask_restx.errors import abort
 from marshmallow.exceptions import ValidationError
 from flask import request
 from flask_login import login_required
@@ -8,7 +9,7 @@ from flaskr.model.director_schema import DirectorSchema
 from flaskr.model.director import Director
 from flaskr.model.movie import Movie
 from flaskr.utils import LOGGER_NAME, INVALID_DATA_JSON, INVALID_DATA_STR
-from flaskr import db, app
+from flaskr import db
 
 d_logger = logging.getLogger(LOGGER_NAME)
 
@@ -35,6 +36,7 @@ director_update = api.model('Update', {
 @api.route('/director')
 class AllDirectors(Resource):
     """Class realize routing for GET and POST request methods"""
+
     @api.marshal_with(director_m)
     @api.response(200, "Success")
     @api.response(404, "Not found")
@@ -52,7 +54,7 @@ class AllDirectors(Resource):
             d_logger.info("User requests director instance, %d" % d_id)
             if not director:
                 d_logger.info("Instance not found")
-                return {"message": "Not found"}, 404
+                return abort(404,error="Not found")
             d_logger.info("Successfully returned director instance ")
             return director_schm.dump(director), 200
         d_logger.info("User requests all director instances")
@@ -60,10 +62,12 @@ class AllDirectors(Resource):
         d_logger.info("Successfully returned")
         return director_schm.dump(director, many=True), 200
 
+
     @login_required
+    @api.marshal_with(add_director)
     @api.response(401, "Unauthorized")
     @api.response(201, "Successfully added")
-    @api.response(400, "Data is not valid")
+    @api.response(400, INVALID_DATA_STR)
     @api.expect(add_director)
     def post(self):
         """
@@ -74,14 +78,16 @@ class AllDirectors(Resource):
         d_logger.info("User tries to add new director")
         try:
             director = director_schm.load(request.get_json(), session=db.session)
+            db.session.add(director)
+            db.session.commit()
             d_logger.info("Successfully added, %r" % director)
             return director_schm.dump(director), 201
-        except ValidationError as e:
+        except ValidationError:
             d_logger.exception(INVALID_DATA_STR)
-            return INVALID_DATA_JSON, 400
-        except AssertionError as ae:
+            return abort(400, **INVALID_DATA_JSON)
+        except AssertionError:
             d_logger.exception(INVALID_DATA_STR)
-            return INVALID_DATA_JSON, 400
+            return abort(400, **INVALID_DATA_JSON)
 
 
     @api.marshal_with(director_m)
@@ -99,11 +105,11 @@ class AllDirectors(Resource):
         d_logger.info("User tries to update director instance")
         if request.get_json().get("id") == 1:
             d_logger.info("User tries to update unknown director")
-            return {"error": "Cant modify"}, 403
+            return abort(403, message="Cant modify")
         director = Director.query.get(int(request.get_json().get("id")))
         if director is None:
             d_logger.info("Instance not found")
-            return {"error": f"Director: {request.get_json().get('id')} not found"}, 404
+            return abort(404, error="Not found")
         try:
             director = director_schm.load(request.get_json(), session=db.session,
                                           instance=director, partial=True)
@@ -111,12 +117,12 @@ class AllDirectors(Resource):
             db.session.commit()
             d_logger.info("Updated successfully, %r" % director)
             return director_schm.dump(director), 200
-        except ValidationError as e:
+        except ValidationError:
             d_logger.exception(INVALID_DATA_STR)
-            return INVALID_DATA_JSON, 400
-        except AssertionError as ae:
+            return abort(400, **INVALID_DATA_JSON)
+        except AssertionError:
             d_logger.exception(INVALID_DATA_STR)
-            return INVALID_DATA_JSON, 400
+            return abort(400, **INVALID_DATA_JSON)
 
 
 
@@ -133,12 +139,11 @@ class AllDirectors(Resource):
         d_logger.info("User tries to delete director instance")
         if int(request.args.get("director_id")) == 1:
             d_logger.info("User tries to delete unknown instance")
-            return {"error": "Cant delete"}, 403
+            return abort(403, message="Cant delete")
         director = Director.query.get(int(request.args.get("director_id")))
         if director is None:
             d_logger.info("Instance not found")
-            return {"error": f"Director: {request.args.get('director_id')}"
-                             f" not found"}, 404
+            return abort(404, error="Not found")
         movie_check = Movie.query.join(Movie.director).filter(Director.id == director.id).all()
         for mov in movie_check:
             if len(mov.director) == 1:

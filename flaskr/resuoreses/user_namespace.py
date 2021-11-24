@@ -1,9 +1,11 @@
 """Module realize login/logout/signup functionality """
+import json
 from datetime import datetime
 import logging
 
 from marshmallow import ValidationError
-from flask_restx import Resource, Namespace, fields
+from flask_restx import Resource, Namespace, fields, marshal
+from flask_restx.errors import abort
 from flask import request
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_required, login_user
@@ -52,6 +54,11 @@ login_exp_model = api.model('Login', {
     'password': fields.String(),
     'remember': fields.Boolean()
 })
+update_user_m = api.model('Update',{
+    'email': fields.String()
+})
+
+login_success ={'message': fields.String()}
 
 
 def is_admin() -> bool:
@@ -60,7 +67,6 @@ def is_admin() -> bool:
     If admin returns True
     """
     if current_user.role_id == USER_ROLE_ADMIN:
-        print(current_user.role_id)
         return True
 
     return False
@@ -75,7 +81,8 @@ class AllUsers(Resource):
     @api.marshal_with(user_exp_model)
     @api.doc('Method returns user profile info or all users '
              "if admin is current user")
-    @api.doc(responses={401: "Not authorized", 200: "OK"})
+    @api.response(401, "Not authorized")
+    @api.response(200, "OK")
     def get(self):
         """
         Returns user to user profile information .
@@ -91,22 +98,22 @@ class AllUsers(Resource):
 
     @api.expect(user_exp_model_admin)
     @api.marshal_with(user_exp_model)
-    @api.doc(responses={401: "Not Authorized", 201: "User added",
-                        409:"Already uses", 400: INVALID_DATA_STR })
-    @api.doc("Method allows to Admin add new user")
+    @api.response(400, INVALID_DATA_STR)
+    @api.response(401, "Not Authorized")
+    @api.response(201, "User added")
     @login_required
     def post(self):
         """Method that allows Admin add new user"""
         log.info("User tries to add new user")
         if not is_admin():
             log.info("User has not enough rights")
-            return {"error": "Not authorized"}, 401
+            return abort(401, error="Not authorized")
         user_json = request.get_json()
         user = User.query.filter(User.email == user_json.get('email')).first()
         if user:
             log.info("Email %s is already uses" % user_json.get('email'))
-            return {'error': f'User with email {user_json.get("email")}'
-                             f' already exists'}, 409
+            return abort(400, error=f'User with email {user_json.get("email")}'
+                             f' already exists')
         try:
             user = User()
             user_new = user_schm.load(user_json, session=db.session, instance=user)
@@ -121,25 +128,32 @@ class AllUsers(Resource):
 
 
     @login_required
+    @api.marshal_with(update_user_m)
     @api.expect(user_exp_model)
-    @api.doc(responses={401: "Not authorized", 200: "Ok",
-                        403: "Administrator rights required", 400: "Bad request"})
+    @api.response(401, "Not authorized")
+    @api.response(200, "OK")
+    @api.response(403, "Administrator rights required")
+    @api.response(400, "Bad request")
     def put(self):
         """
         Method allows user to change profile information
         """
         log.info("User tries to update some data in its profile")
         try:
+            if current_user.email != request.get_json().get("email"):
+                log.info("Can update own profile only")
+                abort(403, error="Can update own profile only")
             user = user_schm.load(request.get_json(), session=db.session, instance=current_user)
             role = request.get_json().get("role")
-            if  not is_admin():
+            if not is_admin() and role:
                 log.info("User tries to change role without admin rights ")
-                return {"error": "Only administrator can change roles"}, 403
+                return abort(403, error="Only administrator can change roles")
             password = request.get_json().get('password')
-            if len(password) < 8:
-                log.info("User tries to change password. Password too short")
-                return {"error": "Password too short"}, 400
-            user.password = generate_password_hash(request.get_json().get('password'),
+            if password:
+                if len(password) < 8:
+                    log.info("User tries to change password. Password too short")
+                    return abort(400, error="Password too short")
+                user.password = generate_password_hash(request.get_json().get('password'),
                                                    method='sha256')
             db.session.add(user)
             db.session.commit()
@@ -147,16 +161,20 @@ class AllUsers(Resource):
             return user_schm.dump(user), 200
         except ValidationError:
             log.exception(INVALID_DATA_STR)
-            return INVALID_DATA_JSON, 400
+            return abort(400, **INVALID_DATA_JSON)
+        except AssertionError:
+            log.exception(INVALID_DATA_STR)
+            return abort(400, **INVALID_DATA_JSON)
 
 
 # pylint: disable=R0201
 @api.route('/login')
 class Login(Resource):
     """Class realizes login process"""
-
+    @api.marshal_with(login_success)
     @api.expect(login_exp_model)
-    @api.doc(responses={404: "Invalid login or password", 200: "OK"})
+    @api.response(404, "Invalid login or password")
+    @api.response(200, "OK")
     def post(self):
         """
         Login user using email and password
@@ -169,9 +187,9 @@ class Login(Resource):
         if user and check_password_hash(user.password, user_pass):
             login_user(user, remember=user_remember)
             log.info("Authorized email=%s" % user_email)
-            return {"message": "Authorized successfully"}, 200
+            return {"message": "Authorized successfully"}
         log.info("Invalid password o email")
-        return {"error": "Invalid email or password"}, 404
+        return abort(404, error="Invalid email or password")
 
 
 # pylint: disable=R0201
@@ -179,8 +197,9 @@ class Login(Resource):
 class UserLogout(Resource):
     """Class realized logout for user"""
 
+    @api.marshal_with(login_success)
     @login_required
-    @api.doc(responses={401: "Not authorized", 200: "OK"})
+    @api.response(200, "Logout Successfully" )
     def get(self):
         """Logout for current user"""
         log.info("User tries to logout")
@@ -194,25 +213,37 @@ class UserLogout(Resource):
 @api.route('/signup')
 class UserSignUp(Resource):
     """Realized signup for user"""
-
-    @api.doc(responses={400: "User exists", 201: "User created",
-                        403: "Authorized user cant signup"})
+    @api.marshal_with(login_success)
+    @api.response(400, "User exists")
+    @api.response(201, "User created")
+    @api.response(403, "Authorized user cant signup")
     @api.expect(user_exp_model)
     def post(self):
         """Sign up a user and login"""
         if isinstance(current_user, User):
-            return {"error": "Authorized user cant signup"}, 403
+            log.info("Authorized user tries to signup again")
+            return abort(400, error="Authorized user cant signup")
         user_email = request.get_json().get("email")
         if User.query.filter(User.email == user_email).first():
-            return {"error": "User with this email already exists"}, 400
+            log.info("Email already used")
+            return abort(400, error="User with this email already exists")
         if not request.get_json().get("password"):
-            return {"error": "Empty password"}, 400
-        user = user_schm.load(request.get_json(), session=db.session)
-        user.password = generate_password_hash(
-            request.get_json().get("password"), method="sha256")
-        user.role_id = USER_ROLE_USER
-        user.created_at = datetime.now()
-        db.session.add(user)
-        db.session.commit()
-        login_user(user, remember=True)
-        return {"message": "User create"}, 201
+            log.info("Empty password")
+            return abort(400, error="Empty password")
+        try:
+            user = user_schm.load(request.get_json(), session=db.session)
+            user.password = generate_password_hash(
+                request.get_json().get("password"), method="sha256")
+            user.role_id = USER_ROLE_USER
+            user.created_at = datetime.now()
+            db.session.add(user)
+            db.session.commit()
+            login_user(user, remember=True)
+            return {"message": "User create"}, 201
+        except ValidationError:
+            log.exception(INVALID_DATA_STR)
+            return abort(400, **INVALID_DATA_JSON)
+        except AssertionError:
+            log.exception(INVALID_DATA_STR)
+            return abort(400, **INVALID_DATA_JSON)
+

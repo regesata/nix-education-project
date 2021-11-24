@@ -1,11 +1,10 @@
 from flask_restx import Api
-import logging
-from flaskr.utils import LOGGER_NAME
 from .role_namespace import api as role_ns
 from .genre_namespace import api as genre_ns
 from .director_namespace import api as director_ns
 from .user_namespace import api as user_ns
 from .movie_namespace import api as movie_ns
+
 api = Api(title='Movies DB')
 api.add_namespace(role_ns)
 api.add_namespace(genre_ns)

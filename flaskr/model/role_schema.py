@@ -1,7 +1,7 @@
 """Marshmallow.SQLAlchemyAutoSchema for role table"""
 
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
-from . import role
+from flaskr.model import role
 
 
 class RoleSchema(SQLAlchemyAutoSchema):

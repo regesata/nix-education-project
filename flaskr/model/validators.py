@@ -27,7 +27,7 @@ class Validators:
         """Validate method for name or titles"""
         if not name:
             return False
-        if 2 > len(name) > 100:
+        if len(name) > 100 or len(name) < 2:
             return False
         return True
 
@@ -52,6 +52,6 @@ class Validators:
     @classmethod
     def validate_rate(cls, rate: int) -> bool:
         """Validate rate. Rate should be between 1 and 10"""
-        if 1 > rate > 10:
+        if rate < 1 or rate > 10:
             return False
         return True

@@ -1,0 +1,996 @@
+[23/Nov/2021 21:07:30] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 21:07:31] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 21:07:31] - ERROR - director_namespace.py - Func: post - in: 82 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'date_of_birth': ['Missing data for required field.'], 'date-of-birth': ['Unknown field.']}
+[23/Nov/2021 21:28:05] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 21:28:06] - INFO - __init__.py - Func: init_data - in: 41 - Database initial data added
+[23/Nov/2021 21:28:06] - INFO - user_namespace.py - Func: post - in: 164 - User tries to login
+[23/Nov/2021 21:28:06] - INFO - user_namespace.py - Func: post - in: 171 - Authorized email=admin@admin.com
+[23/Nov/2021 21:28:06] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 21:28:06] - INFO - director_namespace.py - Func: post - in: 79 - Successfully added, Director(id=None, first_name='Katsu', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 21:28:06] - INFO - director_namespace.py - Func: get - in: 58 - User requests all director instances
+[23/Nov/2021 21:28:06] - INFO - director_namespace.py - Func: get - in: 60 - Successfully returned
+[23/Nov/2021 21:28:53] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 21:28:54] - INFO - __init__.py - Func: init_data - in: 41 - Database initial data added
+[23/Nov/2021 21:28:54] - INFO - user_namespace.py - Func: post - in: 164 - User tries to login
+[23/Nov/2021 21:28:54] - INFO - user_namespace.py - Func: post - in: 171 - Authorized email=admin@admin.com
+[23/Nov/2021 21:28:54] - INFO - genre_namespace.py - Func: post - in: 72 - User tries to add new genre instance
+[23/Nov/2021 21:28:54] - INFO - genre_namespace.py - Func: post - in: 77 - Successfully added Action
+[23/Nov/2021 21:28:54] - INFO - genre_namespace.py - Func: post - in: 72 - User tries to add new genre instance
+[23/Nov/2021 21:28:54] - INFO - genre_namespace.py - Func: post - in: 77 - Successfully added comedy
+[23/Nov/2021 21:28:54] - INFO - genre_namespace.py - Func: get - in: 53 - User tries to get all genre instances
+[23/Nov/2021 21:28:54] - INFO - genre_namespace.py - Func: get - in: 56 - Genre instances successfully returned
+[23/Nov/2021 21:28:54] - INFO - genre_namespace.py - Func: get - in: 47 - User tries to get genre instance id=1
+[23/Nov/2021 21:28:54] - INFO - genre_namespace.py - Func: get - in: 51 - Genre instance successfully returned
+[23/Nov/2021 21:29:07] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 21:29:08] - INFO - __init__.py - Func: init_data - in: 41 - Database initial data added
+[23/Nov/2021 21:29:08] - INFO - user_namespace.py - Func: post - in: 164 - User tries to login
+[23/Nov/2021 21:29:08] - INFO - user_namespace.py - Func: post - in: 171 - Authorized email=admin@admin.com
+[23/Nov/2021 21:29:08] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 21:29:08] - INFO - director_namespace.py - Func: post - in: 79 - Successfully added, Director(id=None, first_name='Katsu', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 21:29:08] - INFO - director_namespace.py - Func: get - in: 58 - User requests all director instances
+[23/Nov/2021 21:29:08] - INFO - director_namespace.py - Func: get - in: 60 - Successfully returned
+[23/Nov/2021 21:30:40] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 21:30:41] - INFO - __init__.py - Func: init_data - in: 41 - Database initial data added
+[23/Nov/2021 21:30:41] - INFO - user_namespace.py - Func: post - in: 164 - User tries to login
+[23/Nov/2021 21:30:41] - INFO - user_namespace.py - Func: post - in: 171 - Authorized email=admin@admin.com
+[23/Nov/2021 21:30:41] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 21:30:41] - INFO - director_namespace.py - Func: post - in: 81 - Successfully added, Director(id=2, first_name='Katsu', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 21:30:41] - INFO - director_namespace.py - Func: get - in: 58 - User requests all director instances
+[23/Nov/2021 21:30:41] - INFO - director_namespace.py - Func: get - in: 60 - Successfully returned
+[23/Nov/2021 21:30:41] - INFO - director_namespace.py - Func: get - in: 52 - User requests director instance, 1
+[23/Nov/2021 21:30:41] - INFO - director_namespace.py - Func: get - in: 56 - Successfully returned director instance 
+[23/Nov/2021 22:46:19] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 22:46:19] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:46:19] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:46:20] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:46:20] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:46:20] - INFO - director_namespace.py - Func: post - in: 81 - Successfully added, Director(id=2, first_name='Katsu', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 22:46:20] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:46:20] - ERROR - director_namespace.py - Func: post - in: 84 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'date_of_birth': ['Not a valid date.']}
+[23/Nov/2021 22:46:20] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:46:20] - ERROR - director_namespace.py - Func: post - in: 84 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'first_name': ['Not a valid string.'], 'date_of_birth': ['Missing data for required field.'], 'last_name': ['Missing data for required field.']}
+[23/Nov/2021 22:46:20] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:46:20] - ERROR - director_namespace.py - Func: post - in: 84 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'date_of_birth': ['Not a valid date.']}
+[23/Nov/2021 22:49:15] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 22:49:16] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:49:16] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:49:16] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:49:16] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:49:16] - INFO - director_namespace.py - Func: post - in: 81 - Successfully added, Director(id=2, first_name='Katsu', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 22:49:17] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:49:17] - ERROR - director_namespace.py - Func: post - in: 84 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'date_of_birth': ['Not a valid date.']}
+[23/Nov/2021 22:49:17] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:49:17] - ERROR - director_namespace.py - Func: post - in: 84 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'last_name': ['Missing data for required field.'], 'date_of_birth': ['Missing data for required field.'], 'first_name': ['Not a valid string.']}
+[23/Nov/2021 22:49:17] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:49:17] - ERROR - director_namespace.py - Func: post - in: 87 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 892, in _do_load
+    result = self._invoke_load_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1090, in _invoke_load_processors
+    data = self._invoke_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1220, in _invoke_processors
+    data = processor(data, many=many, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 78, in make_instance
+    instance = self.opts.model(**kwargs)
+  File "<string>", line 4, in __init__
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/decl_base.py", line 1157, in _declarative_constructor
+    setattr(self, k, kwargs[k])
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 459, in __set__
+    self.impl.set(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1082, in set
+    value = self.fire_replace_event(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1090, in fire_replace_event
+    value = fn(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/util.py", line 185, in set_
+    return validator(state.obj(), key, value)
+  File "/home/artur/nix-education-project/flaskr/model/director.py", line 60, in validate_date_of_birth
+    raise AssertionError("Date of birth not valid date")
+AssertionError: Date of birth not valid date
+[23/Nov/2021 22:49:17] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:49:17] - INFO - director_namespace.py - Func: post - in: 81 - Successfully added, Director(id=3, first_name='J', last_name='Smith', date_of_birth=datetime.date(1960, 12, 30))
+[23/Nov/2021 22:50:54] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 22:50:55] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:50:55] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:50:55] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:50:55] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:50:55] - INFO - director_namespace.py - Func: post - in: 81 - Successfully added, Director(id=2, first_name='Katsu', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 22:50:55] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:50:55] - ERROR - director_namespace.py - Func: post - in: 84 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'date_of_birth': ['Not a valid date.']}
+[23/Nov/2021 22:50:55] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:50:55] - ERROR - director_namespace.py - Func: post - in: 84 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'first_name': ['Not a valid string.'], 'last_name': ['Missing data for required field.'], 'date_of_birth': ['Missing data for required field.']}
+[23/Nov/2021 22:50:55] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:50:55] - ERROR - director_namespace.py - Func: post - in: 87 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 892, in _do_load
+    result = self._invoke_load_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1090, in _invoke_load_processors
+    data = self._invoke_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1220, in _invoke_processors
+    data = processor(data, many=many, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 78, in make_instance
+    instance = self.opts.model(**kwargs)
+  File "<string>", line 4, in __init__
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/decl_base.py", line 1157, in _declarative_constructor
+    setattr(self, k, kwargs[k])
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 459, in __set__
+    self.impl.set(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1082, in set
+    value = self.fire_replace_event(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1090, in fire_replace_event
+    value = fn(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/util.py", line 185, in set_
+    return validator(state.obj(), key, value)
+  File "/home/artur/nix-education-project/flaskr/model/director.py", line 60, in validate_date_of_birth
+    raise AssertionError("Date of birth not valid date")
+AssertionError: Date of birth not valid date
+[23/Nov/2021 22:50:55] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:50:55] - ERROR - director_namespace.py - Func: post - in: 87 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 892, in _do_load
+    result = self._invoke_load_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1090, in _invoke_load_processors
+    data = self._invoke_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1220, in _invoke_processors
+    data = processor(data, many=many, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 78, in make_instance
+    instance = self.opts.model(**kwargs)
+  File "<string>", line 4, in __init__
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/decl_base.py", line 1157, in _declarative_constructor
+    setattr(self, k, kwargs[k])
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 459, in __set__
+    self.impl.set(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1082, in set
+    value = self.fire_replace_event(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1090, in fire_replace_event
+    value = fn(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/util.py", line 185, in set_
+    return validator(state.obj(), key, value)
+  File "/home/artur/nix-education-project/flaskr/model/director.py", line 46, in validate_first_name
+    raise AssertionError("First name is not valid")
+AssertionError: First name is not valid
+[23/Nov/2021 22:51:32] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 22:51:33] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:51:33] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:51:33] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:51:33] - INFO - genre_namespace.py - Func: post - in: 72 - User tries to add new genre instance
+[23/Nov/2021 22:51:33] - INFO - genre_namespace.py - Func: post - in: 77 - Successfully added Action
+[23/Nov/2021 22:51:33] - INFO - genre_namespace.py - Func: post - in: 72 - User tries to add new genre instance
+[23/Nov/2021 22:51:33] - ERROR - genre_namespace.py - Func: post - in: 83 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/genre_namespace.py", line 74, in post
+    genre = genre_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 892, in _do_load
+    result = self._invoke_load_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1090, in _invoke_load_processors
+    data = self._invoke_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1220, in _invoke_processors
+    data = processor(data, many=many, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 78, in make_instance
+    instance = self.opts.model(**kwargs)
+  File "<string>", line 4, in __init__
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/decl_base.py", line 1157, in _declarative_constructor
+    setattr(self, k, kwargs[k])
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 459, in __set__
+    self.impl.set(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1082, in set
+    value = self.fire_replace_event(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1090, in fire_replace_event
+    value = fn(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/util.py", line 185, in set_
+    return validator(state.obj(), key, value)
+  File "/home/artur/nix-education-project/flaskr/model/genre.py", line 37, in validate_title
+    raise AssertionError("Title is not valid")
+AssertionError: Title is not valid
+[23/Nov/2021 22:51:33] - INFO - genre_namespace.py - Func: post - in: 72 - User tries to add new genre instance
+[23/Nov/2021 22:51:33] - ERROR - genre_namespace.py - Func: post - in: 80 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/genre_namespace.py", line 74, in post
+    genre = genre_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'title': ['Not a valid string.']}
+[23/Nov/2021 22:51:33] - INFO - genre_namespace.py - Func: post - in: 72 - User tries to add new genre instance
+[23/Nov/2021 22:51:33] - ERROR - genre_namespace.py - Func: post - in: 80 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/genre_namespace.py", line 74, in post
+    genre = genre_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'title': ['Missing data for required field.']}
+[23/Nov/2021 22:51:35] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:51:35] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:51:35] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:51:35] - INFO - genre_namespace.py - Func: post - in: 72 - User tries to add new genre instance
+[23/Nov/2021 22:51:35] - INFO - genre_namespace.py - Func: post - in: 77 - Successfully added Action
+[23/Nov/2021 22:51:35] - INFO - genre_namespace.py - Func: post - in: 72 - User tries to add new genre instance
+[23/Nov/2021 22:51:35] - INFO - genre_namespace.py - Func: post - in: 77 - Successfully added comedy
+[23/Nov/2021 22:51:35] - INFO - genre_namespace.py - Func: get - in: 53 - User tries to get all genre instances
+[23/Nov/2021 22:51:35] - INFO - genre_namespace.py - Func: get - in: 56 - Genre instances successfully returned
+[23/Nov/2021 22:51:35] - INFO - genre_namespace.py - Func: get - in: 47 - User tries to get genre instance id=1
+[23/Nov/2021 22:51:35] - INFO - genre_namespace.py - Func: get - in: 51 - Genre instance successfully returned
+[23/Nov/2021 22:51:36] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:51:36] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:51:36] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:51:36] - INFO - genre_namespace.py - Func: post - in: 72 - User tries to add new genre instance
+[23/Nov/2021 22:51:37] - INFO - genre_namespace.py - Func: post - in: 77 - Successfully added comedy
+[23/Nov/2021 22:51:37] - INFO - genre_namespace.py - Func: get - in: 53 - User tries to get all genre instances
+[23/Nov/2021 22:51:37] - INFO - genre_namespace.py - Func: get - in: 56 - Genre instances successfully returned
+[23/Nov/2021 22:51:37] - INFO - genre_namespace.py - Func: put - in: 100 - User tries to update genre
+[23/Nov/2021 22:51:37] - INFO - genre_namespace.py - Func: put - in: 100 - User tries to update genre
+[23/Nov/2021 22:51:38] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:51:38] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:51:38] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:51:38] - INFO - genre_namespace.py - Func: delete - in: 129 - User tries to delete genre instance
+[23/Nov/2021 22:51:40] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:51:40] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:51:40] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:51:40] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:51:40] - INFO - director_namespace.py - Func: post - in: 81 - Successfully added, Director(id=2, first_name='Katsu', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 22:51:40] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:51:40] - ERROR - director_namespace.py - Func: post - in: 84 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'date_of_birth': ['Not a valid date.']}
+[23/Nov/2021 22:51:40] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:51:40] - ERROR - director_namespace.py - Func: post - in: 84 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'first_name': ['Not a valid string.'], 'date_of_birth': ['Missing data for required field.'], 'last_name': ['Missing data for required field.']}
+[23/Nov/2021 22:51:40] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:51:40] - ERROR - director_namespace.py - Func: post - in: 87 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 892, in _do_load
+    result = self._invoke_load_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1090, in _invoke_load_processors
+    data = self._invoke_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1220, in _invoke_processors
+    data = processor(data, many=many, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 78, in make_instance
+    instance = self.opts.model(**kwargs)
+  File "<string>", line 4, in __init__
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/decl_base.py", line 1157, in _declarative_constructor
+    setattr(self, k, kwargs[k])
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 459, in __set__
+    self.impl.set(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1082, in set
+    value = self.fire_replace_event(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1090, in fire_replace_event
+    value = fn(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/util.py", line 185, in set_
+    return validator(state.obj(), key, value)
+  File "/home/artur/nix-education-project/flaskr/model/director.py", line 60, in validate_date_of_birth
+    raise AssertionError("Date of birth not valid date")
+AssertionError: Date of birth not valid date
+[23/Nov/2021 22:51:40] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:51:40] - ERROR - director_namespace.py - Func: post - in: 87 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 892, in _do_load
+    result = self._invoke_load_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1090, in _invoke_load_processors
+    data = self._invoke_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1220, in _invoke_processors
+    data = processor(data, many=many, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 78, in make_instance
+    instance = self.opts.model(**kwargs)
+  File "<string>", line 4, in __init__
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/decl_base.py", line 1157, in _declarative_constructor
+    setattr(self, k, kwargs[k])
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 459, in __set__
+    self.impl.set(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1082, in set
+    value = self.fire_replace_event(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1090, in fire_replace_event
+    value = fn(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/util.py", line 185, in set_
+    return validator(state.obj(), key, value)
+  File "/home/artur/nix-education-project/flaskr/model/director.py", line 46, in validate_first_name
+    raise AssertionError("First name is not valid")
+AssertionError: First name is not valid
+[23/Nov/2021 22:51:42] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:51:42] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:51:42] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:51:42] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:51:42] - INFO - director_namespace.py - Func: post - in: 81 - Successfully added, Director(id=2, first_name='Katsu', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 22:51:42] - INFO - director_namespace.py - Func: get - in: 58 - User requests all director instances
+[23/Nov/2021 22:51:42] - INFO - director_namespace.py - Func: get - in: 60 - Successfully returned
+[23/Nov/2021 22:51:42] - INFO - director_namespace.py - Func: get - in: 52 - User requests director instance, 1
+[23/Nov/2021 22:51:42] - INFO - director_namespace.py - Func: get - in: 56 - Successfully returned director instance 
+[23/Nov/2021 22:51:42] - INFO - director_namespace.py - Func: get - in: 52 - User requests director instance, 10
+[23/Nov/2021 22:51:42] - INFO - director_namespace.py - Func: get - in: 54 - Instance not found
+[23/Nov/2021 22:51:44] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:51:44] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:51:44] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:51:44] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:51:44] - INFO - director_namespace.py - Func: post - in: 81 - Successfully added, Director(id=2, first_name='Katsu', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 22:51:44] - INFO - director_namespace.py - Func: put - in: 103 - User tries to update director instance
+[23/Nov/2021 22:51:44] - INFO - director_namespace.py - Func: put - in: 116 - Updated successfully, Director(id=2, first_name='Kastu-sin', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 22:51:44] - INFO - director_namespace.py - Func: get - in: 58 - User requests all director instances
+[23/Nov/2021 22:51:44] - INFO - director_namespace.py - Func: get - in: 60 - Successfully returned
+[23/Nov/2021 22:51:44] - INFO - director_namespace.py - Func: put - in: 103 - User tries to update director instance
+[23/Nov/2021 22:51:44] - INFO - director_namespace.py - Func: put - in: 105 - User tries to update unknown director
+[23/Nov/2021 22:51:44] - INFO - director_namespace.py - Func: put - in: 103 - User tries to update director instance
+[23/Nov/2021 22:51:44] - INFO - director_namespace.py - Func: put - in: 109 - Instance not found
+[23/Nov/2021 22:51:45] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:51:45] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:51:45] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:51:45] - INFO - director_namespace.py - Func: delete - in: 137 - User tries to delete director instance
+[23/Nov/2021 22:51:45] - INFO - director_namespace.py - Func: delete - in: 139 - User tries to delete unknown instance
+[23/Nov/2021 22:51:45] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 22:51:45] - INFO - director_namespace.py - Func: post - in: 81 - Successfully added, Director(id=2, first_name='Katsu', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 22:51:45] - INFO - director_namespace.py - Func: put - in: 103 - User tries to update director instance
+[23/Nov/2021 22:51:45] - INFO - director_namespace.py - Func: put - in: 116 - Updated successfully, Director(id=2, first_name='Kastu-sin', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 22:51:45] - INFO - director_namespace.py - Func: get - in: 58 - User requests all director instances
+[23/Nov/2021 22:51:45] - INFO - director_namespace.py - Func: get - in: 60 - Successfully returned
+[23/Nov/2021 22:51:45] - INFO - director_namespace.py - Func: delete - in: 137 - User tries to delete director instance
+[23/Nov/2021 22:51:46] - INFO - director_namespace.py - Func: delete - in: 154 - Deleted successfully, Director(id=2, first_name='Kastu-sin', last_name='Shintaro', date_of_birth=datetime.date(1931, 11, 29))
+[23/Nov/2021 22:51:46] - INFO - director_namespace.py - Func: delete - in: 137 - User tries to delete director instance
+[23/Nov/2021 22:51:46] - INFO - director_namespace.py - Func: delete - in: 143 - Instance not found
+[23/Nov/2021 22:51:47] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:51:47] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:51:47] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:51:47] - INFO - role_namespace.py - Func: get - in: 51 - User tries to get role instances
+[23/Nov/2021 22:51:47] - INFO - role_namespace.py - Func: get - in: 67 - Successfully return all roles instances
+[23/Nov/2021 22:51:47] - INFO - role_namespace.py - Func: get - in: 51 - User tries to get role instances
+[23/Nov/2021 22:51:47] - INFO - role_namespace.py - Func: get - in: 63 - Successfully return role id=1
+[23/Nov/2021 22:51:48] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:51:49] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:51:49] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:51:49] - INFO - role_namespace.py - Func: post - in: 79 - User tries to add new role
+[23/Nov/2021 22:51:49] - INFO - role_namespace.py - Func: post - in: 87 - Successfully added Operator role
+[23/Nov/2021 22:51:49] - INFO - role_namespace.py - Func: post - in: 79 - User tries to add new role
+[23/Nov/2021 22:51:49] - ERROR - role_namespace.py - Func: post - in: 90 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/role_namespace.py", line 84, in post
+    role = role_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'title': ['Not a valid string.']}
+[23/Nov/2021 22:51:49] - INFO - role_namespace.py - Func: post - in: 79 - User tries to add new role
+[23/Nov/2021 22:51:49] - ERROR - role_namespace.py - Func: post - in: 93 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/role_namespace.py", line 84, in post
+    role = role_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 892, in _do_load
+    result = self._invoke_load_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1090, in _invoke_load_processors
+    data = self._invoke_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1220, in _invoke_processors
+    data = processor(data, many=many, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 78, in make_instance
+    instance = self.opts.model(**kwargs)
+  File "<string>", line 4, in __init__
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/decl_base.py", line 1157, in _declarative_constructor
+    setattr(self, k, kwargs[k])
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 459, in __set__
+    self.impl.set(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1082, in set
+    value = self.fire_replace_event(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1090, in fire_replace_event
+    value = fn(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/util.py", line 185, in set_
+    return validator(state.obj(), key, value)
+  File "/home/artur/nix-education-project/flaskr/model/role.py", line 30, in validate_title
+    raise AssertionError("Title not provided")
+AssertionError: Title not provided
+[23/Nov/2021 22:51:50] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:51:50] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:51:50] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:51:51] - INFO - role_namespace.py - Func: post - in: 79 - User tries to add new role
+[23/Nov/2021 22:51:51] - INFO - role_namespace.py - Func: post - in: 87 - Successfully added Operator role
+[23/Nov/2021 22:51:51] - INFO - role_namespace.py - Func: put - in: 110 - User tries to update role
+[23/Nov/2021 22:51:51] - INFO - role_namespace.py - Func: put - in: 123 - Successfully update role id=3
+[23/Nov/2021 22:51:51] - INFO - role_namespace.py - Func: get - in: 51 - User tries to get role instances
+[23/Nov/2021 22:51:51] - INFO - role_namespace.py - Func: get - in: 63 - Successfully return role id=3
+[23/Nov/2021 22:51:53] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[23/Nov/2021 22:51:53] - INFO - user_namespace.py - Func: post - in: 163 - User tries to login
+[23/Nov/2021 22:51:53] - INFO - user_namespace.py - Func: post - in: 170 - Authorized email=admin@admin.com
+[23/Nov/2021 22:51:53] - INFO - role_namespace.py - Func: post - in: 79 - User tries to add new role
+[23/Nov/2021 22:51:53] - INFO - role_namespace.py - Func: post - in: 87 - Successfully added Operator role
+[23/Nov/2021 22:51:53] - INFO - role_namespace.py - Func: get - in: 51 - User tries to get role instances
+[23/Nov/2021 22:51:53] - INFO - role_namespace.py - Func: get - in: 63 - Successfully return role id=3
+[23/Nov/2021 22:51:53] - INFO - role_namespace.py - Func: delete - in: 153 - Successfully delete role id=3
+[23/Nov/2021 22:51:53] - INFO - role_namespace.py - Func: get - in: 51 - User tries to get role instances
+[23/Nov/2021 22:51:53] - INFO - role_namespace.py - Func: get - in: 61 - Role id=3 not found
+[23/Nov/2021 22:51:53] - INFO - role_namespace.py - Func: delete - in: 146 - Cant delete basic roles
+[23/Nov/2021 22:51:53] - INFO - role_namespace.py - Func: delete - in: 146 - Cant delete basic roles
+[24/Nov/2021 09:34:53] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:35:55] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:35:55] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:35:55] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:35:55] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:35:55] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:35:55] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:37:08] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:37:08] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:37:08] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:37:08] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:37:08] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:37:08] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:38:08] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:38:08] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:38:08] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:38:08] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:38:08] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:38:08] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:40:00] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:40:00] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:40:00] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:40:00] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:40:00] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:40:00] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:40:27] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:40:27] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:40:27] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:40:27] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:40:27] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:40:27] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:41:21] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:43:28] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:43:28] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:43:28] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:43:28] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:43:28] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:43:28] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:43:28] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:43:28] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:43:28] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:43:28] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:44:01] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:44:01] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:44:01] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:44:01] - INFO - movie_namespace.py - Func: post - in: 148 - Genre data is invalid
+[24/Nov/2021 09:44:01] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:44:01] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:44:48] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:44:49] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:44:49] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:44:49] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Mad Max
+[24/Nov/2021 09:44:49] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:44:49] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:45:37] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:45:37] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:45:37] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:45:37] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Mad Max
+[24/Nov/2021 09:45:37] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:45:37] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:46:24] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:46:24] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:46:24] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:46:24] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Mad Max
+[24/Nov/2021 09:46:24] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:46:24] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:47:12] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:47:12] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:47:12] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:47:12] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Mad Max
+[24/Nov/2021 09:47:12] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:47:12] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:48:39] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:48:39] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Interstellar
+[24/Nov/2021 09:48:39] - INFO - movie_namespace.py - Func: post - in: 137 - User 2 tries to add movie instance
+[24/Nov/2021 09:48:39] - INFO - movie_namespace.py - Func: post - in: 171 - Successfully added movie, Mad Max
+[24/Nov/2021 09:48:39] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:48:39] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 10:55:52] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 10:55:53] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 10:55:53] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 10:55:53] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=2, first_name='Christopher', last_name='Nolan', date_of_birth=datetime.date(1970, 7, 30))
+[24/Nov/2021 10:55:53] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 10:55:53] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=3, first_name='George', last_name='Miller', date_of_birth=datetime.date(1945, 3, 3))
+[24/Nov/2021 10:55:53] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 10:55:53] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Drama
+[24/Nov/2021 10:55:53] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 10:55:53] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Adventure
+[24/Nov/2021 10:55:53] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 10:55:54] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Sci-fi
+[24/Nov/2021 10:55:54] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 10:55:54] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Action
+[24/Nov/2021 10:55:54] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 10:55:54] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Interstellar
+[24/Nov/2021 10:55:54] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 10:55:54] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Mad Max
+[24/Nov/2021 10:55:54] - INFO - movie_namespace.py - Func: put - in: 189 - User tries to update movie
+[24/Nov/2021 10:55:54] - INFO - movie_namespace.py - Func: get - in: 76 - User tries to get movies
+[24/Nov/2021 10:55:54] - INFO - movie_namespace.py - Func: get - in: 124 - Return movies, page=1
+[24/Nov/2021 10:58:52] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 10:58:53] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 10:58:53] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 10:58:53] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=2, first_name='Christopher', last_name='Nolan', date_of_birth=datetime.date(1970, 7, 30))
+[24/Nov/2021 10:58:53] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 10:58:53] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=3, first_name='George', last_name='Miller', date_of_birth=datetime.date(1945, 3, 3))
+[24/Nov/2021 10:58:53] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 10:58:53] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Drama
+[24/Nov/2021 10:58:53] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 10:58:53] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Adventure
+[24/Nov/2021 10:58:53] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 10:58:53] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Sci-fi
+[24/Nov/2021 10:58:53] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 10:58:53] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Action
+[24/Nov/2021 10:58:53] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 10:58:54] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Interstellar
+[24/Nov/2021 10:58:54] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 10:58:54] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Mad Max
+[24/Nov/2021 10:58:54] - INFO - movie_namespace.py - Func: put - in: 189 - User tries to update movie
+[24/Nov/2021 10:58:54] - INFO - movie_namespace.py - Func: get - in: 76 - User tries to get movies
+[24/Nov/2021 10:58:54] - INFO - movie_namespace.py - Func: get - in: 124 - Return movies, page=1
+[24/Nov/2021 10:59:22] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 10:59:23] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 10:59:23] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 10:59:23] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=2, first_name='Christopher', last_name='Nolan', date_of_birth=datetime.date(1970, 7, 30))
+[24/Nov/2021 10:59:23] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 10:59:23] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=3, first_name='George', last_name='Miller', date_of_birth=datetime.date(1945, 3, 3))
+[24/Nov/2021 10:59:23] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 10:59:23] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Drama
+[24/Nov/2021 10:59:23] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 10:59:23] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Adventure
+[24/Nov/2021 10:59:23] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 10:59:23] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Sci-fi
+[24/Nov/2021 10:59:23] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 10:59:23] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Action
+[24/Nov/2021 10:59:23] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 10:59:23] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Interstellar
+[24/Nov/2021 10:59:23] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 10:59:24] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Mad Max
+[24/Nov/2021 10:59:24] - INFO - movie_namespace.py - Func: put - in: 189 - User tries to update movie
+[24/Nov/2021 10:59:24] - INFO - movie_namespace.py - Func: get - in: 76 - User tries to get movies
+[24/Nov/2021 10:59:24] - INFO - movie_namespace.py - Func: get - in: 124 - Return movies, page=1
+[24/Nov/2021 11:00:40] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 11:00:41] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 11:00:41] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 11:00:41] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=2, first_name='Christopher', last_name='Nolan', date_of_birth=datetime.date(1970, 7, 30))
+[24/Nov/2021 11:00:41] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 11:00:42] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=3, first_name='George', last_name='Miller', date_of_birth=datetime.date(1945, 3, 3))
+[24/Nov/2021 11:00:42] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 11:00:42] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Drama
+[24/Nov/2021 11:00:42] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 11:00:42] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Adventure
+[24/Nov/2021 11:00:42] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 11:00:42] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Sci-fi
+[24/Nov/2021 11:00:42] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 11:00:42] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Action
+[24/Nov/2021 11:00:42] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 11:00:42] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Interstellar
+[24/Nov/2021 11:00:42] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 11:00:42] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Mad Max
+[24/Nov/2021 11:00:42] - INFO - movie_namespace.py - Func: put - in: 189 - User tries to update movie
+[24/Nov/2021 11:00:42] - INFO - movie_namespace.py - Func: get - in: 76 - User tries to get movies
+[24/Nov/2021 11:00:42] - INFO - movie_namespace.py - Func: get - in: 124 - Return movies, page=1
+[24/Nov/2021 11:01:02] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 11:01:03] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 11:01:03] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 11:01:03] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=2, first_name='Christopher', last_name='Nolan', date_of_birth=datetime.date(1970, 7, 30))
+[24/Nov/2021 11:01:03] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 11:01:03] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=3, first_name='George', last_name='Miller', date_of_birth=datetime.date(1945, 3, 3))
+[24/Nov/2021 11:01:03] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 11:01:03] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Drama
+[24/Nov/2021 11:01:03] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 11:01:04] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Adventure
+[24/Nov/2021 11:01:04] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 11:01:04] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Sci-fi
+[24/Nov/2021 11:01:04] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 11:01:04] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Action
+[24/Nov/2021 11:01:04] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 11:01:04] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Interstellar
+[24/Nov/2021 11:01:04] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 11:01:04] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Mad Max
+[24/Nov/2021 11:01:04] - INFO - movie_namespace.py - Func: put - in: 189 - User tries to update movie
+[24/Nov/2021 11:01:04] - INFO - movie_namespace.py - Func: get - in: 76 - User tries to get movies
+[24/Nov/2021 11:01:04] - INFO - movie_namespace.py - Func: get - in: 124 - Return movies, page=1
+[24/Nov/2021 11:02:12] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 11:02:13] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 11:02:13] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 11:02:13] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=2, first_name='Christopher', last_name='Nolan', date_of_birth=datetime.date(1970, 7, 30))
+[24/Nov/2021 11:02:13] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 11:02:13] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=3, first_name='George', last_name='Miller', date_of_birth=datetime.date(1945, 3, 3))
+[24/Nov/2021 11:02:13] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 11:02:13] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Drama
+[24/Nov/2021 11:02:13] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 11:02:13] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Adventure
+[24/Nov/2021 11:02:13] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 11:02:13] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Sci-fi
+[24/Nov/2021 11:02:13] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 11:02:13] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Action
+[24/Nov/2021 11:02:13] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 11:02:14] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Interstellar
+[24/Nov/2021 11:02:14] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 11:02:14] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Mad Max
+[24/Nov/2021 11:02:14] - INFO - movie_namespace.py - Func: put - in: 189 - User tries to update movie
+[24/Nov/2021 11:02:14] - INFO - movie_namespace.py - Func: put - in: 209 - Successfully updated id=1
+[24/Nov/2021 11:02:14] - INFO - movie_namespace.py - Func: get - in: 76 - User tries to get movies
+[24/Nov/2021 11:02:14] - INFO - movie_namespace.py - Func: get - in: 124 - Return movies, page=1
+[24/Nov/2021 14:27:29] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 14:27:30] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 14:27:30] - INFO - user_namespace.py - Func: post - in: 179 - User tries to login
+[24/Nov/2021 14:27:30] - INFO - user_namespace.py - Func: post - in: 186 - Authorized email=admin@admin.com
+[24/Nov/2021 14:27:30] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 14:27:30] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=2, first_name='Christopher', last_name='Nolan', date_of_birth=datetime.date(1970, 7, 30))
+[24/Nov/2021 14:27:30] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 14:27:30] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=3, first_name='George', last_name='Miller', date_of_birth=datetime.date(1945, 3, 3))
+[24/Nov/2021 14:27:30] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:27:30] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Drama
+[24/Nov/2021 14:27:30] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:27:30] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Adventure
+[24/Nov/2021 14:27:30] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:27:30] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Sci-fi
+[24/Nov/2021 14:27:30] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:27:30] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Action
+[24/Nov/2021 14:27:30] - INFO - movie_namespace.py - Func: post - in: 136 - User 1 tries to add movie instance
+[24/Nov/2021 14:27:31] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Interstellar
+[24/Nov/2021 14:27:31] - INFO - movie_namespace.py - Func: post - in: 136 - User 1 tries to add movie instance
+[24/Nov/2021 14:27:31] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Mad Max
+[24/Nov/2021 14:27:31] - INFO - user_namespace.py - Func: post - in: 220 - Authorized user tries to signup again
+[24/Nov/2021 14:27:31] - INFO - movie_namespace.py - Func: put - in: 189 - User tries to update movie
+[24/Nov/2021 14:27:31] - INFO - movie_namespace.py - Func: put - in: 208 - Successfully updated id=1
+[24/Nov/2021 14:31:04] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 14:31:05] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 14:31:05] - INFO - user_namespace.py - Func: post - in: 179 - User tries to login
+[24/Nov/2021 14:31:05] - INFO - user_namespace.py - Func: post - in: 186 - Authorized email=admin@admin.com
+[24/Nov/2021 14:31:05] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 14:31:05] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=2, first_name='Christopher', last_name='Nolan', date_of_birth=datetime.date(1970, 7, 30))
+[24/Nov/2021 14:31:05] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 14:31:05] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=3, first_name='George', last_name='Miller', date_of_birth=datetime.date(1945, 3, 3))
+[24/Nov/2021 14:31:05] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:31:05] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Drama
+[24/Nov/2021 14:31:05] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:31:05] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Adventure
+[24/Nov/2021 14:31:05] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:31:05] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Sci-fi
+[24/Nov/2021 14:31:05] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:31:05] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Action
+[24/Nov/2021 14:31:05] - INFO - movie_namespace.py - Func: post - in: 136 - User 1 tries to add movie instance
+[24/Nov/2021 14:31:06] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Interstellar
+[24/Nov/2021 14:31:06] - INFO - movie_namespace.py - Func: post - in: 136 - User 1 tries to add movie instance
+[24/Nov/2021 14:31:06] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Mad Max
+[24/Nov/2021 14:31:06] - INFO - user_namespace.py - Func: post - in: 220 - Authorized user tries to signup again
+[24/Nov/2021 14:31:06] - INFO - movie_namespace.py - Func: get - in: 76 - User tries to get movies
+[24/Nov/2021 14:31:06] - INFO - movie_namespace.py - Func: get - in: 124 - Return movies, page=1
+[24/Nov/2021 14:31:06] - INFO - movie_namespace.py - Func: put - in: 189 - User tries to update movie
+[24/Nov/2021 14:31:06] - INFO - movie_namespace.py - Func: put - in: 208 - Successfully updated id=1
+[24/Nov/2021 14:33:20] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 14:33:21] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 14:33:21] - INFO - user_namespace.py - Func: post - in: 179 - User tries to login
+[24/Nov/2021 14:33:21] - INFO - user_namespace.py - Func: post - in: 186 - Authorized email=admin@admin.com
+[24/Nov/2021 14:33:21] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 14:33:21] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=2, first_name='Christopher', last_name='Nolan', date_of_birth=datetime.date(1970, 7, 30))
+[24/Nov/2021 14:33:21] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 14:33:21] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=3, first_name='George', last_name='Miller', date_of_birth=datetime.date(1945, 3, 3))
+[24/Nov/2021 14:33:21] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:33:21] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Drama
+[24/Nov/2021 14:33:21] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:33:21] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Adventure
+[24/Nov/2021 14:33:21] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:33:22] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Sci-fi
+[24/Nov/2021 14:33:22] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:33:22] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Action
+[24/Nov/2021 14:33:22] - INFO - movie_namespace.py - Func: post - in: 136 - User 1 tries to add movie instance
+[24/Nov/2021 14:33:22] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Interstellar
+[24/Nov/2021 14:33:22] - INFO - movie_namespace.py - Func: post - in: 136 - User 1 tries to add movie instance
+[24/Nov/2021 14:33:22] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Mad Max
+[24/Nov/2021 14:33:22] - INFO - user_namespace.py - Func: get - in: 201 - User tries to logout
+[24/Nov/2021 14:33:22] - INFO - user_namespace.py - Func: get - in: 204 - Successfully logout, email=admin@admin.com
+[24/Nov/2021 14:33:22] - INFO - movie_namespace.py - Func: get - in: 76 - User tries to get movies
+[24/Nov/2021 14:33:22] - INFO - movie_namespace.py - Func: get - in: 124 - Return movies, page=1
+[24/Nov/2021 14:33:22] - INFO - movie_namespace.py - Func: put - in: 189 - User tries to update movie
+[24/Nov/2021 14:33:22] - INFO - movie_namespace.py - Func: put - in: 195 - User id=2 tries to update movie added by id=1
+[24/Nov/2021 14:36:31] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 14:36:32] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 14:36:32] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 14:36:32] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=2, first_name='Christopher', last_name='Nolan', date_of_birth=datetime.date(1970, 7, 30))
+[24/Nov/2021 14:36:32] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 14:36:32] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=3, first_name='George', last_name='Miller', date_of_birth=datetime.date(1945, 3, 3))
+[24/Nov/2021 14:36:32] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:36:32] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Drama
+[24/Nov/2021 14:36:32] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:36:32] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Adventure
+[24/Nov/2021 14:36:32] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:36:32] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Sci-fi
+[24/Nov/2021 14:36:32] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:36:32] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Action
+[24/Nov/2021 14:36:32] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 14:36:32] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Interstellar
+[24/Nov/2021 14:36:32] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 14:36:33] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Mad Max
+[24/Nov/2021 14:36:33] - INFO - user_namespace.py - Func: get - in: 201 - User tries to logout
+[24/Nov/2021 14:36:33] - INFO - user_namespace.py - Func: get - in: 204 - Successfully logout, email=email@email.com
+[24/Nov/2021 14:36:33] - INFO - movie_namespace.py - Func: get - in: 76 - User tries to get movies
+[24/Nov/2021 14:36:33] - INFO - movie_namespace.py - Func: get - in: 124 - Return movies, page=1
+[24/Nov/2021 14:37:22] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 14:37:22] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 14:37:22] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 14:37:23] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=2, first_name='Christopher', last_name='Nolan', date_of_birth=datetime.date(1970, 7, 30))
+[24/Nov/2021 14:37:23] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 14:37:23] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=3, first_name='George', last_name='Miller', date_of_birth=datetime.date(1945, 3, 3))
+[24/Nov/2021 14:37:23] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:37:23] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Drama
+[24/Nov/2021 14:37:23] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:37:23] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Adventure
+[24/Nov/2021 14:37:23] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:37:23] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Sci-fi
+[24/Nov/2021 14:37:23] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:37:23] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Action
+[24/Nov/2021 14:37:23] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 14:37:23] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Interstellar
+[24/Nov/2021 14:37:23] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 14:37:23] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Mad Max
+[24/Nov/2021 14:37:23] - INFO - user_namespace.py - Func: get - in: 201 - User tries to logout
+[24/Nov/2021 14:37:23] - INFO - user_namespace.py - Func: get - in: 204 - Successfully logout, email=email@email.com
+[24/Nov/2021 14:37:23] - INFO - movie_namespace.py - Func: get - in: 76 - User tries to get movies
+[24/Nov/2021 14:37:23] - INFO - movie_namespace.py - Func: get - in: 124 - Return movies, page=1
+[24/Nov/2021 14:37:50] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 14:37:51] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 14:37:51] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 14:37:51] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=2, first_name='Christopher', last_name='Nolan', date_of_birth=datetime.date(1970, 7, 30))
+[24/Nov/2021 14:37:51] - INFO - director_namespace.py - Func: post - in: 78 - User tries to add new director
+[24/Nov/2021 14:37:51] - INFO - director_namespace.py - Func: post - in: 83 - Successfully added, Director(id=3, first_name='George', last_name='Miller', date_of_birth=datetime.date(1945, 3, 3))
+[24/Nov/2021 14:37:51] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:37:51] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Drama
+[24/Nov/2021 14:37:51] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:37:51] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Adventure
+[24/Nov/2021 14:37:51] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:37:51] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Sci-fi
+[24/Nov/2021 14:37:51] - INFO - genre_namespace.py - Func: post - in: 76 - User tries to add new genre instance
+[24/Nov/2021 14:37:51] - INFO - genre_namespace.py - Func: post - in: 81 - Successfully added Action
+[24/Nov/2021 14:37:51] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 14:37:52] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Interstellar
+[24/Nov/2021 14:37:52] - INFO - movie_namespace.py - Func: post - in: 136 - User 2 tries to add movie instance
+[24/Nov/2021 14:37:52] - INFO - movie_namespace.py - Func: post - in: 170 - Successfully added movie, Mad Max
+[24/Nov/2021 14:37:52] - INFO - movie_namespace.py - Func: put - in: 189 - User tries to update movie
+[24/Nov/2021 14:37:52] - INFO - movie_namespace.py - Func: put - in: 208 - Successfully updated id=1
+[24/Nov/2021 14:37:52] - INFO - movie_namespace.py - Func: get - in: 76 - User tries to get movies
+[24/Nov/2021 14:37:52] - INFO - movie_namespace.py - Func: get - in: 124 - Return movies, page=1
+[24/Nov/2021 14:37:52] - INFO - movie_namespace.py - Func: put - in: 189 - User tries to update movie
+[24/Nov/2021 14:37:52] - INFO - movie_namespace.py - Func: put - in: 192 - Movie id=10 not found
+[24/Nov/2021 14:37:52] - INFO - movie_namespace.py - Func: put - in: 189 - User tries to update movie
+[24/Nov/2021 15:40:36] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 15:40:36] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 15:40:36] - INFO - user_namespace.py - Func: get - in: 205 - User tries to logout
+[24/Nov/2021 15:40:36] - INFO - user_namespace.py - Func: get - in: 208 - Successfully logout, email=email@email.com
+[24/Nov/2021 15:40:36] - INFO - user_namespace.py - Func: post - in: 182 - User tries to login
+[24/Nov/2021 15:40:37] - INFO - user_namespace.py - Func: post - in: 189 - Authorized email=admin@admin.com
+[24/Nov/2021 15:40:37] - INFO - user_namespace.py - Func: post - in: 224 - Authorized user tries to signup again
+[24/Nov/2021 15:40:37] - INFO - user_namespace.py - Func: get - in: 205 - User tries to logout
+[24/Nov/2021 15:40:37] - INFO - user_namespace.py - Func: get - in: 208 - Successfully logout, email=admin@admin.com
+[24/Nov/2021 15:40:37] - INFO - user_namespace.py - Func: post - in: 228 - Email already used
+[24/Nov/2021 15:41:42] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 15:41:43] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 15:42:15] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 15:42:16] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 15:44:20] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 15:44:20] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 15:44:20] - INFO - user_namespace.py - Func: get - in: 205 - User tries to logout
+[24/Nov/2021 15:44:20] - INFO - user_namespace.py - Func: get - in: 208 - Successfully logout, email=email@email.com
+[24/Nov/2021 15:44:20] - INFO - user_namespace.py - Func: post - in: 182 - User tries to login
+[24/Nov/2021 15:44:21] - INFO - user_namespace.py - Func: post - in: 189 - Authorized email=admin@admin.com
+[24/Nov/2021 15:44:21] - INFO - user_namespace.py - Func: post - in: 224 - Authorized user tries to signup again
+[24/Nov/2021 15:44:21] - INFO - user_namespace.py - Func: get - in: 205 - User tries to logout
+[24/Nov/2021 15:44:21] - INFO - user_namespace.py - Func: get - in: 208 - Successfully logout, email=admin@admin.com
+[24/Nov/2021 15:44:21] - INFO - user_namespace.py - Func: post - in: 228 - Email already used
+[24/Nov/2021 15:44:21] - INFO - user_namespace.py - Func: post - in: 231 - Empty password
+[24/Nov/2021 15:44:43] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 15:44:44] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[24/Nov/2021 15:44:44] - INFO - user_namespace.py - Func: get - in: 205 - User tries to logout
+[24/Nov/2021 15:44:44] - INFO - user_namespace.py - Func: get - in: 208 - Successfully logout, email=email@email.com
+[24/Nov/2021 15:44:44] - INFO - user_namespace.py - Func: post - in: 182 - User tries to login
+[24/Nov/2021 15:44:44] - INFO - user_namespace.py - Func: post - in: 189 - Authorized email=admin@admin.com
+[24/Nov/2021 15:44:44] - INFO - user_namespace.py - Func: post - in: 224 - Authorized user tries to signup again
+[24/Nov/2021 15:44:44] - INFO - user_namespace.py - Func: get - in: 205 - User tries to logout
+[24/Nov/2021 15:44:44] - INFO - user_namespace.py - Func: get - in: 208 - Successfully logout, email=admin@admin.com
+[24/Nov/2021 15:44:44] - INFO - user_namespace.py - Func: post - in: 228 - Email already used
+[24/Nov/2021 15:44:44] - INFO - user_namespace.py - Func: post - in: 231 - Empty password

@@ -1,5 +1,7 @@
 """Model for role table"""
 from flaskr import db
+from sqlalchemy.orm import validates
+from flaskr.model.validators import Validators
 
 
 # pylint: disable=R0201
@@ -20,3 +22,12 @@ class Role(db.Model):
 
     def __repr__(self):
         return f"Role(id={self.id!r}, title={self.title!r}, description={self.description!r})"
+
+
+    @validates('title')
+    def validate_title(self, key, title):
+        if not title:
+            raise AssertionError("Title not provided")
+        if not Validators.validate_name(title):
+            raise AssertionError("Title is not valid")
+        return title

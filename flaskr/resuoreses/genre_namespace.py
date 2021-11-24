@@ -1,7 +1,9 @@
 """Module realize routing for genre resource"""
+import json
 import logging
 
 from flask_restx import Resource, Namespace, fields
+from flask_restx.errors import abort
 from marshmallow import ValidationError
 from flask import request
 from flaskr.utils import INVALID_DATA_JSON, INVALID_DATA_STR, LOGGER_NAME
@@ -24,16 +26,18 @@ genre_update = api.model('Update',{
 })
 log = logging.getLogger(LOGGER_NAME)
 
+
 # pylint: disable=R0201
 @api.route('/genre')
 class AllGenres(Resource):
     """
     Class realize GET and POST method
     """
+
+    @api.marshal_with(genre_m)
     @api.response(200, "Ok")
     @api.response(404, "Not found")
     @api.param('genre_id', "Id for genre single record")
-    @api.marshal_with(genre_m)
     def get(self):
         """
         Returns JSON with  record or records from genre table
@@ -47,7 +51,7 @@ class AllGenres(Resource):
             log.info("User tries to get genre instance id=%d" % g_id)
             if not genre:
                 log.info("Genre instance not found")
-                return {"message": "Not found"}, 404
+                return abort(404, error="Not found")
             log.info("Genre instance successfully returned")
             return genre_schm.dump(genre), 200
         log.info("User tries to get all genre instances")
@@ -58,11 +62,11 @@ class AllGenres(Resource):
             log.info("Genre has no one instance")
         return genre_schm.dump(genres, many=True), 200
 
+    @api.marshal_with(genre_m)
     @login_required
     @api.response(401, "Unauthorized")
     @api.response(201, "Successfully added")
     @api.response(400, INVALID_DATA_STR)
-    @api.marshal_with(add_genre)
     @api.expect(add_genre)
     def post(self):
         """
@@ -78,15 +82,14 @@ class AllGenres(Resource):
             return genre_schm.dump(genre), 201
         except ValidationError:
             log.exception(INVALID_DATA_STR)
-            return INVALID_DATA_JSON, 400
+            return abort(400, **INVALID_DATA_JSON)
         except AssertionError:
             log.exception(INVALID_DATA_STR)
-            return INVALID_DATA_JSON, 400
+            return abort(400, **INVALID_DATA_JSON)
 
 
-
+    @api.marshal_with(add_genre)
     @login_required
-    @api.marshal_with(genre_m)
     @api.expect(genre_update)
     @api.response(200, "Successfully update")
     @api.response(404, "Not found")
@@ -101,7 +104,7 @@ class AllGenres(Resource):
         genre = Genre.query.get(request.get_json().get("id"))
         if genre is None:
             log.info("Genre instance not found, id=%d", request.get_json().get("id"))
-            return {"error": f"Genre: {request.get_json().get('id')} not found"}, 404
+            return abort(404, error="Not found")
         try:
             genre = genre_schm.load(request.get_json(), session=db.session, instance=genre,
                                     partial=True)
@@ -110,7 +113,10 @@ class AllGenres(Resource):
             return genre_schm.dump(genre), 200
         except ValidationError:
             log.info(INVALID_DATA_STR)
-            return INVALID_DATA_JSON, 400
+            return abort(400, **INVALID_DATA_JSON)
+        except AssertionError:
+            log.exception(INVALID_DATA_STR)
+            return abort(400, **INVALID_DATA_JSON)
 
 
     @login_required
@@ -127,7 +133,7 @@ class AllGenres(Resource):
         genre = Genre.query.get(request.args.get("genre_id"))
         if genre is None:
             log.info("Genre instance not found, id=%d", request.args.get("genre_id"))
-            return {"error": f"Genre: {request.args.get('genre_id')} not found"}, 404
+            return abort(404, error="Not found")
         db.session.delete(genre)
         db.session.commit()
         log.info("Genre instance successfully deleted, %r", genre)
