@@ -1,7 +1,7 @@
 """Model for user table """
 from flask_login import UserMixin
 from sqlalchemy.orm import validates
-from flaskr import db
+from flaskr import db, log_manager
 from flaskr.model.validators import Validators
 
 
@@ -49,3 +49,8 @@ class User(UserMixin, db.Model):
                f" last_name={self.last_name}," \
                f" email={self.email}, password={self.password}," \
                f" role_id={self.role_id}, created_at={self.created_at})"
+
+
+@log_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)

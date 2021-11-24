@@ -13,7 +13,9 @@ from flaskr import db
 role_schm = RoleSchema()
 
 log = logging.getLogger(LOGGER_NAME)
+
 api = Namespace('roles', path="//")
+
 add_role_m = api.model('Add role', {
     'title': fields.String(),
     'description': fields.String()
@@ -87,6 +89,12 @@ class AllRoles(Resource):
         except ValidationError:
             log.exception(INVALID_DATA_STR)
             return INVALID_DATA_JSON, 400
+        except AssertionError:
+            log.exception(INVALID_DATA_STR)
+            return INVALID_DATA_JSON, 400
+
+
+
 
     @api.marshal_with(role_m)
     @api.expect(update_role)
@@ -115,6 +123,9 @@ class AllRoles(Resource):
             log.info("Successfully update role id=%d" % role.id)
             return role_schm.dump(role), 200
         except ValidationError:
+            log.exception(INVALID_DATA_STR)
+            return INVALID_DATA_JSON, 400
+        except AssertionError:
             log.exception(INVALID_DATA_STR)
             return INVALID_DATA_JSON, 400
 

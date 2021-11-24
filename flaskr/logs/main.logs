@@ -1,0 +1,189 @@
+[23/Nov/2021 19:02:48] - INFO - __init__.py - Func: create_app - in: 23 - Application started
+[23/Nov/2021 19:02:49] - INFO - __init__.py - Func: init_db - in: 37 - Database table created
+[23/Nov/2021 19:04:12] - INFO - __init__.py - Func: create_app - in: 23 - Application started
+[23/Nov/2021 19:04:12] - INFO - __init__.py - Func: init_db - in: 37 - Database table created
+[23/Nov/2021 19:05:37] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:05:37] - INFO - __init__.py - Func: init_db - in: 38 - Database table created
+[23/Nov/2021 19:05:37] - INFO - __init__.py - Func: init_data - in: 72 - Database initial data added
+[23/Nov/2021 19:08:09] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:09:36] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:09:43] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:09:55] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:10:22] - INFO - __init__.py - Func: create_app - in: 23 - Application started
+[23/Nov/2021 19:11:11] - INFO - __init__.py - Func: create_app - in: 23 - Application started
+[23/Nov/2021 19:12:25] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:12:54] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:13:02] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:13:42] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:13:42] - INFO - __init__.py - Func: init_db - in: 37 - Database table created
+[23/Nov/2021 19:21:15] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:21:43] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:22:54] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:22:54] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 19:24:58] - INFO - __init__.py - Func: create_app - in: 25 - Application started
+[23/Nov/2021 19:24:58] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 19:32:13] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:32:13] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 19:39:13] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 19:39:14] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 19:39:14] - INFO - __init__.py - Func: init_data - in: 41 - Database initial data added
+[23/Nov/2021 21:02:08] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 21:02:08] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 21:02:39] - INFO - user_namespace.py - Func: post - in: 164 - User tries to login
+[23/Nov/2021 21:02:39] - INFO - user_namespace.py - Func: post - in: 171 - Authorized email=admin@admin.com
+[23/Nov/2021 21:04:15] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 21:04:15] - ERROR - director_namespace.py - Func: post - in: 82 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/director_namespace.py", line 78, in post
+    director = director_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 904, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'date_of_birth': ['Not a valid date.']}
+[23/Nov/2021 21:05:38] - INFO - director_namespace.py - Func: post - in: 76 - User tries to add new director
+[23/Nov/2021 21:05:38] - INFO - director_namespace.py - Func: post - in: 79 - Successfully added, Director(id=None, first_name='sitna', last_name='asd', date_of_birth=datetime.date(1939, 11, 29))
+[23/Nov/2021 21:57:38] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 21:57:38] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 21:57:48] - INFO - role_namespace.py - Func: get - in: 51 - User tries to get role instances
+[23/Nov/2021 21:57:48] - INFO - role_namespace.py - Func: get - in: 67 - Successfully return all roles instances
+[23/Nov/2021 23:26:31] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 23:26:31] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 23:26:43] - INFO - role_namespace.py - Func: get - in: 51 - User tries to get role instances
+[23/Nov/2021 23:26:43] - INFO - role_namespace.py - Func: get - in: 61 - Role id=4 not found
+[23/Nov/2021 23:27:04] - INFO - genre_namespace.py - Func: get - in: 48 - User tries to get genre instance id=34
+[23/Nov/2021 23:27:04] - INFO - genre_namespace.py - Func: get - in: 50 - Genre instance not found
+[23/Nov/2021 23:28:26] - INFO - genre_namespace.py - Func: get - in: 48 - User tries to get genre instance id=34
+[23/Nov/2021 23:28:26] - INFO - genre_namespace.py - Func: get - in: 50 - Genre instance not found
+[23/Nov/2021 23:28:31] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 23:28:31] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 23:28:37] - INFO - genre_namespace.py - Func: get - in: 48 - User tries to get genre instance id=34
+[23/Nov/2021 23:28:37] - INFO - genre_namespace.py - Func: get - in: 50 - Genre instance not found
+[23/Nov/2021 23:29:14] - INFO - genre_namespace.py - Func: get - in: 48 - User tries to get genre instance id=34
+[23/Nov/2021 23:29:14] - INFO - genre_namespace.py - Func: get - in: 50 - Genre instance not found
+[23/Nov/2021 23:29:37] - INFO - genre_namespace.py - Func: get - in: 48 - User tries to get genre instance id=34
+[23/Nov/2021 23:29:37] - INFO - genre_namespace.py - Func: get - in: 50 - Genre instance not found
+[23/Nov/2021 23:32:21] - INFO - genre_namespace.py - Func: get - in: 48 - User tries to get genre instance id=1
+[23/Nov/2021 23:32:21] - INFO - genre_namespace.py - Func: get - in: 50 - Genre instance not found
+[23/Nov/2021 23:32:24] - INFO - genre_namespace.py - Func: get - in: 54 - User tries to get all genre instances
+[23/Nov/2021 23:32:24] - INFO - genre_namespace.py - Func: get - in: 59 - Genre has no one instance
+[23/Nov/2021 23:32:43] - INFO - role_namespace.py - Func: get - in: 51 - User tries to get role instances
+[23/Nov/2021 23:32:43] - INFO - role_namespace.py - Func: get - in: 67 - Successfully return all roles instances
+[23/Nov/2021 23:32:54] - INFO - director_namespace.py - Func: get - in: 58 - User requests all director instances
+[23/Nov/2021 23:32:54] - INFO - director_namespace.py - Func: get - in: 60 - Successfully returned
+[23/Nov/2021 23:32:58] - INFO - director_namespace.py - Func: get - in: 52 - User requests director instance, 2
+[23/Nov/2021 23:32:58] - INFO - director_namespace.py - Func: get - in: 54 - Instance not found
+[23/Nov/2021 23:34:26] - INFO - director_namespace.py - Func: get - in: 58 - User requests all director instances
+[23/Nov/2021 23:34:26] - INFO - director_namespace.py - Func: get - in: 60 - Successfully returned
+[23/Nov/2021 23:34:29] - INFO - director_namespace.py - Func: get - in: 52 - User requests director instance, 3
+[23/Nov/2021 23:34:29] - INFO - director_namespace.py - Func: get - in: 54 - Instance not found
+[23/Nov/2021 23:34:40] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 23:34:40] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 23:34:53] - INFO - director_namespace.py - Func: get - in: 52 - User requests director instance, 3
+[23/Nov/2021 23:34:53] - INFO - director_namespace.py - Func: get - in: 54 - Instance not found
+[23/Nov/2021 23:36:38] - INFO - director_namespace.py - Func: get - in: 52 - User requests director instance, 3
+[23/Nov/2021 23:36:38] - INFO - director_namespace.py - Func: get - in: 54 - Instance not found
+[23/Nov/2021 23:36:53] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 23:36:53] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 23:37:03] - INFO - director_namespace.py - Func: get - in: 53 - User requests director instance, 3
+[23/Nov/2021 23:37:03] - INFO - director_namespace.py - Func: get - in: 55 - Instance not found
+[23/Nov/2021 23:46:10] - INFO - genre_namespace.py - Func: get - in: 54 - User tries to get all genre instances
+[23/Nov/2021 23:46:10] - INFO - genre_namespace.py - Func: get - in: 59 - Genre has no one instance
+[23/Nov/2021 23:46:15] - INFO - genre_namespace.py - Func: get - in: 48 - User tries to get genre instance id=11
+[23/Nov/2021 23:46:15] - INFO - genre_namespace.py - Func: get - in: 50 - Genre instance not found
+[23/Nov/2021 23:46:19] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 23:46:19] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 23:46:21] - INFO - genre_namespace.py - Func: get - in: 49 - User tries to get genre instance id=11
+[23/Nov/2021 23:46:21] - INFO - genre_namespace.py - Func: get - in: 51 - Genre instance not found
+[23/Nov/2021 23:46:43] - INFO - director_namespace.py - Func: get - in: 53 - User requests director instance, 11
+[23/Nov/2021 23:46:43] - INFO - director_namespace.py - Func: get - in: 55 - Instance not found
+[23/Nov/2021 23:49:35] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 23:49:35] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 23:49:44] - INFO - genre_namespace.py - Func: get - in: 49 - User tries to get genre instance id=1
+[23/Nov/2021 23:49:44] - INFO - genre_namespace.py - Func: get - in: 51 - Genre instance not found
+[23/Nov/2021 23:50:44] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 23:50:44] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 23:51:47] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 23:51:47] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 23:52:15] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 23:52:15] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 23:52:31] - INFO - genre_namespace.py - Func: get - in: 51 - User tries to get genre instance id=443
+[23/Nov/2021 23:52:31] - INFO - genre_namespace.py - Func: get - in: 53 - Genre instance not found
+[23/Nov/2021 23:52:59] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 23:52:59] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 23:55:19] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 23:55:19] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 23:57:21] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[23/Nov/2021 23:57:21] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[23/Nov/2021 23:58:34] - INFO - director_namespace.py - Func: delete - in: 139 - User tries to delete director instance
+[23/Nov/2021 23:58:34] - INFO - director_namespace.py - Func: delete - in: 145 - Instance not found
+[24/Nov/2021 00:37:26] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 00:37:26] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[24/Nov/2021 00:37:42] - INFO - user_namespace.py - Func: post - in: 172 - User tries to login
+[24/Nov/2021 00:37:42] - INFO - user_namespace.py - Func: post - in: 181 - Invalid password o email
+[24/Nov/2021 00:37:44] - INFO - user_namespace.py - Func: post - in: 172 - User tries to login
+[24/Nov/2021 00:37:44] - INFO - user_namespace.py - Func: post - in: 181 - Invalid password o email
+[24/Nov/2021 00:38:02] - INFO - user_namespace.py - Func: get - in: 194 - User tries to logout
+[24/Nov/2021 00:38:02] - INFO - user_namespace.py - Func: get - in: 197 - Successfully logout, email=admin@admin.com
+[24/Nov/2021 00:38:15] - ERROR - user_namespace.py - Func: post - in: 236 - Data in user request is not valid
+Traceback (most recent call last):
+  File "/home/artur/nix-education-project/flaskr/resuoreses/user_namespace.py", line 223, in post
+    user = user_schm.load(request.get_json(), session=db.session)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 96, in load
+    return super().load(data, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 719, in load
+    return self._do_load(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 892, in _do_load
+    result = self._invoke_load_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1090, in _invoke_load_processors
+    data = self._invoke_processors(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow/schema.py", line 1220, in _invoke_processors
+    data = processor(data, many=many, **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/marshmallow_sqlalchemy/load_instance_mixin.py", line 78, in make_instance
+    instance = self.opts.model(**kwargs)
+  File "<string>", line 4, in __init__
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/decl_base.py", line 1157, in _declarative_constructor
+    setattr(self, k, kwargs[k])
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 459, in __set__
+    self.impl.set(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1082, in set
+    value = self.fire_replace_event(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1090, in fire_replace_event
+    value = fn(
+  File "/home/artur/.local/share/virtualenvs/nix-education-project-_UOwEN4t/lib/python3.8/site-packages/sqlalchemy/orm/util.py", line 185, in set_
+    return validator(state.obj(), key, value)
+  File "/home/artur/nix-education-project/flaskr/model/user.py", line 44, in validate_email
+    raise AssertionError("Email not valid")
+AssertionError: Email not valid
+[24/Nov/2021 09:52:29] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 09:52:29] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[24/Nov/2021 09:52:58] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:52:58] - INFO - movie_namespace.py - Func: get - in: 86 - Search by title, keyword, s
+[24/Nov/2021 09:52:58] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:53:41] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:53:41] - INFO - movie_namespace.py - Func: get - in: 86 - Search by title, keyword, 3
+[24/Nov/2021 09:53:41] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:53:50] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[24/Nov/2021 09:53:50] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[24/Nov/2021 09:54:07] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:54:07] - INFO - movie_namespace.py - Func: get - in: 86 - Search by title, keyword, 3
+[24/Nov/2021 09:54:07] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 09:59:05] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 09:59:05] - INFO - movie_namespace.py - Func: get - in: 86 - Search by title, keyword, 3
+[24/Nov/2021 09:59:05] - INFO - movie_namespace.py - Func: get - in: 92 - Filter by genre, 3
+[24/Nov/2021 09:59:05] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[24/Nov/2021 10:20:53] - INFO - movie_namespace.py - Func: get - in: 77 - User tries to get movies
+[24/Nov/2021 10:20:53] - INFO - movie_namespace.py - Func: get - in: 86 - Search by title, keyword, 3
+[24/Nov/2021 10:20:53] - INFO - movie_namespace.py - Func: get - in: 92 - Filter by genre, 3
+[24/Nov/2021 10:20:53] - INFO - movie_namespace.py - Func: get - in: 103 - Filter by years, 1987 - 1989
+[24/Nov/2021 10:20:53] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
