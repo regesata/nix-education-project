@@ -187,3 +187,20 @@ AssertionError: Email not valid
 [24/Nov/2021 10:20:53] - INFO - movie_namespace.py - Func: get - in: 92 - Filter by genre, 3
 [24/Nov/2021 10:20:53] - INFO - movie_namespace.py - Func: get - in: 103 - Filter by years, 1987 - 1989
 [24/Nov/2021 10:20:53] - INFO - movie_namespace.py - Func: get - in: 125 - Return movies, page=1
+[25/Nov/2021 09:47:51] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[25/Nov/2021 09:47:52] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[25/Nov/2021 09:47:52] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[25/Nov/2021 09:52:07] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[25/Nov/2021 09:52:07] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[25/Nov/2021 09:52:22] - INFO - genre_namespace.py - Func: get - in: 57 - User tries to get all genre instances
+[25/Nov/2021 09:52:22] - INFO - genre_namespace.py - Func: get - in: 62 - Genre has no one instance
+[25/Nov/2021 09:52:30] - INFO - director_namespace.py - Func: get - in: 60 - User requests all director instances
+[25/Nov/2021 09:52:30] - INFO - director_namespace.py - Func: get - in: 62 - Successfully returned
+[25/Nov/2021 11:26:44] - INFO - __init__.py - Func: create_app - in: 24 - Application started
+[25/Nov/2021 11:26:44] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[25/Nov/2021 20:51:54] - INFO - __init__.py - Func: create_app - in: 25 - Application started
+[25/Nov/2021 20:53:13] - INFO - __init__.py - Func: create_app - in: 25 - Application started
+[25/Nov/2021 20:53:14] - INFO - __init__.py - Func: init_db - in: 16 - Database table created
+[25/Nov/2021 20:53:14] - INFO - __init__.py - Func: init_data - in: 43 - Database initial data added
+[25/Nov/2021 20:53:42] - INFO - director_namespace.py - Func: get - in: 60 - User requests all director instances
+[25/Nov/2021 20:53:42] - INFO - director_namespace.py - Func: get - in: 62 - Successfully returned

@@ -58,7 +58,7 @@ update_user_m = api.model('Update',{
     'email': fields.String()
 })
 
-login_success ={'message': fields.String()}
+login_success =api.model('Return message', {'message': fields.String()})
 
 
 def is_admin() -> bool:

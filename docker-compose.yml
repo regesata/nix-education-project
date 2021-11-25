@@ -1,0 +1,33 @@
+version: "3.8"
+
+
+services:
+
+  db_postgres:
+    image: postgres:13.2
+    restart: always
+    env_file:
+      - flaskr/env/.env_flask.list
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  flask_app:
+    build: flaskr/
+    restart: on-failure
+    environment:
+      - PYTHONPATH=/flaskr
+    env_file:
+      - flaskr/env/.env_flask.list
+    ports:
+      - "8000:8000"
+    volumes:
+      - flaskr:/usr/share/flaskr
+    depends_on:
+      - "db_postgres"
+
+volumes:
+  flaskr:
+  db-data:
+
