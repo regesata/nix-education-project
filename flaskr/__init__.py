@@ -5,6 +5,7 @@ from flask import Flask
 from flaskr.utils import get_logger_fact, LOGGER_NAME
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+
 from flask_login import LoginManager
 
 log = get_logger_fact(LOGGER_NAME)

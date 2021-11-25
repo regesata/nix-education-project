@@ -5,7 +5,8 @@ from logging.handlers import RotatingFileHandler
 
 
 class AppConfig:
-    SQLALCHEMY_DATABASE_URI = "sqlite:///model.db"
+    #SQLALCHEMY_DATABASE_URI = "sqlite:///model.db"
+    SQLALCHEMY_DATABASE_URI = "postgresql+pg8000://postgres:postgres_password@db_postgres/postgres"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY = "too secret"
     LOGFILE = "logs/main.logs"
