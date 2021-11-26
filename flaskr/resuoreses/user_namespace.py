@@ -1,19 +1,18 @@
 """Module realize login/logout/signup functionality """
-import json
-from datetime import datetime
-import logging
 
+import logging
+from datetime import datetime
 from marshmallow import ValidationError
-from flask_restx import Resource, Namespace, fields, marshal
+from flask_restx import Resource, Namespace, fields
 from flask_restx.errors import abort
 from flask import request
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_required, login_user
-from flask_login import current_user, logout_user, AnonymousUserMixin
-from  flaskr.utils import LOGGER_NAME, INVALID_DATA_JSON, INVALID_DATA_STR
+from flask_login import current_user, logout_user
+from werkzeug.security import generate_password_hash, check_password_hash
+
+from flaskr.utils import LOGGER_NAME, INVALID_DATA_JSON, INVALID_DATA_STR
 from flaskr.model.user_schema import UserSchema
 from flaskr.model.role import Role
-
 from flaskr.resuoreses.movie_namespace import movie_m
 from flaskr.model.user import User
 from flaskr import db
@@ -54,7 +53,7 @@ login_exp_model = api.model('Login', {
     'password': fields.String(),
     'remember': fields.Boolean()
 })
-update_user_m = api.model('Update',{
+update_user_m = api.model('Update_user',{
     'email': fields.String()
 })
 
@@ -92,7 +91,7 @@ class AllUsers(Resource):
         if is_admin():
             log.info("Current user is Admin. Get all users")
             return user_schm.dump(User.query.join(Role).all(), many=True), 200
-        log.info("Current user role_id=%d get only own data" % current_user.role_id)
+        log.info("Current user role_id=%d get only own data", current_user.role_id)
         return user_schm.dump(User.query.join(Role, Role.id == User.role_id)
                               .filter(User.id == current_user.id).first()), 200
 
@@ -111,7 +110,7 @@ class AllUsers(Resource):
         user_json = request.get_json()
         user = User.query.filter(User.email == user_json.get('email')).first()
         if user:
-            log.info("Email %s is already uses" % user_json.get('email'))
+            log.info("Email %s is already uses", user_json.get('email'))
             return abort(400, error=f'User with email {user_json.get("email")}'
                              f' already exists')
         try:
@@ -186,7 +185,7 @@ class Login(Resource):
         user = User.query.filter(User.email == user_email).first()
         if user and check_password_hash(user.password, user_pass):
             login_user(user, remember=user_remember)
-            log.info("Authorized email=%s" % user_email)
+            log.info("Authorized email=%s", user_email)
             return {"message": "Authorized successfully"}
         log.info("Invalid password o email")
         return abort(404, error="Invalid email or password")
@@ -205,7 +204,7 @@ class UserLogout(Resource):
         log.info("User tries to logout")
         email = current_user.email
         logout_user()
-        log.info("Successfully logout, email=%s" % email)
+        log.info("Successfully logout, email=%s", email)
         return {"message": "Logout Successfully"}, 200
 
 
@@ -246,4 +245,3 @@ class UserSignUp(Resource):
         except AssertionError:
             log.exception(INVALID_DATA_STR)
             return abort(400, **INVALID_DATA_JSON)
-

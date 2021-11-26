@@ -21,9 +21,7 @@ COPY ./Pipfile.lock .
 RUN  pipenv install --system --deploy
 
 # copy project
-COPY . /flaskr
+COPY . .
 EXPOSE 8000
 
-RUN chmod u+x ./migrate.sh
-ENTRYPOINT ["./migrate.sh"]
 

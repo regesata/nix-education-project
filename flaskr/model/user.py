@@ -53,4 +53,5 @@ class User(UserMixin, db.Model):
 
 @log_manager.user_loader
 def load_user(user_id):
+    """Function for flask-login"""
     return User.query.get(user_id)

@@ -1,10 +1,15 @@
-import json
+"""
+Module contains pytest fixtures
+and config class
+"""
 
+import json
 import pytest
+import res
 from flaskr import create_app, db
 from flaskr.resuoreses import api
 from flaskr.model import init_data
-import res
+
 import logging
 
 
@@ -41,16 +46,19 @@ def client(app):
 
 @pytest.fixture()
 def auth_admin(client):
+    """Makes login as admin"""
     client.post('/login', data=json.dumps(res.user_admin), content_type='application/json')
 
 
 @pytest.fixture()
 def auth_user(client):
+    """Makes login as user"""
     client.post('/signup', data=json.dumps(res.user), content_type='application/json')
 
 
 @pytest.fixture()
 def add_movie(client, auth_user):
+    """Adds movie to table as user """
     for dr in res.directors:
         client.post('/director', data=json.dumps(dr), content_type='application/json')
     for gnr in res.genres:
@@ -59,10 +67,9 @@ def add_movie(client, auth_user):
     client.post('/movie', data=json.dumps(res.movies[1]), content_type='application/json')
 
 
-
-
 @pytest.fixture()
 def add_movie_adm(client, auth_admin):
+    """Adds movie to table as admin """
     for dr in res.directors:
         client.post('/director', data=json.dumps(dr), content_type='application/json')
     for gnr in res.genres:
@@ -70,5 +77,3 @@ def add_movie_adm(client, auth_admin):
     client.post('/movie', data=json.dumps(res.movies[0]), content_type='application/json')
     client.post('/movie', data=json.dumps(res.movies[1]), content_type='application/json')
     client.get('/logout')
-
-

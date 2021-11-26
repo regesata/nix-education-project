@@ -1,3 +1,4 @@
+"""Module contains data for tests"""
 genre_1 = {"title": "Action"}
 genre_2 = {"title": ""}
 genre_3 = {"title": 123}
