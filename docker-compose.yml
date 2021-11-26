@@ -1,6 +1,5 @@
 version: "3.8"
 
-
 services:
 
   db_postgres:
@@ -16,18 +15,26 @@ services:
   flask_app:
     build: flaskr/
     restart: on-failure
-    environment:
-      - PYTHONPATH=/flaskr
     env_file:
       - flaskr/env/.env_flask.list
     ports:
       - "8000:8000"
-    volumes:
-      - flaskr:/usr/share/flaskr
     depends_on:
       - "db_postgres"
 
+  nginx:
+    image: nginx
+    depends_on:
+      - "flask_app"
+    ports:
+      - "80:80"
+    volumes:
+      - ./flaskr/nginx:/etc/nginx/conf.d
+
+
+
+
 volumes:
-  flaskr:
+
   db-data:
 
