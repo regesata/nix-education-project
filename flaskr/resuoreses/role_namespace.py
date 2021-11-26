@@ -21,11 +21,11 @@ add_role_m = api.model('Add role', {
     'description': fields.String()
 })
 
-role_m = api.inherit('Role', add_role_m, {
+role_m = api.inherit('Get role', add_role_m, {
     'id': fields.Integer()
 })
 
-update_role = api.model('Update', {
+update_role = api.model('Update role', {
     'id': fields.Integer()
 })
 
@@ -58,9 +58,9 @@ class AllRoles(Resource):
         if r_id:
             roles = Role.query.get(r_id)
             if not roles:
-                log.info("Role id=%d not found" % r_id)
+                log.info("Role id=%d not found", r_id)
                 return {"error": "Not Found"}, 404
-            log.info("Successfully return role id=%d" % r_id)
+            log.info("Successfully return role id=%d", r_id)
             return role_schm.dump(roles), 200
 
         roles = Role.query.all()
@@ -120,7 +120,7 @@ class AllRoles(Resource):
                                       partial=True)
             db.session.add(role_new)
             db.session.commit()
-            log.info("Successfully update role id=%d" % role.id)
+            log.info("Successfully update role id=%d", role.id)
             return role_schm.dump(role), 200
         except ValidationError:
             log.exception(INVALID_DATA_STR)
@@ -146,9 +146,9 @@ class AllRoles(Resource):
             log.info("Cant delete basic roles")
             return {"error": "Cant delete"}, 403
         if role is None:
-            log.info("Role not found id=%d" % r_id)
+            log.info("Role not found id=%d", r_id)
             return {"error": f"Role:{r_id} not found"}, 404
         db.session.delete(role)
         db.session.commit()
-        log.info("Successfully delete role id=%d" % role.id)
+        log.info("Successfully delete role id=%d", role.id)
         return '', 204

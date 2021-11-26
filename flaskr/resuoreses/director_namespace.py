@@ -23,11 +23,11 @@ add_director = api.model('Add director', {
     'date_of_birth': fields.Date(),
 })
 
-director_m = api.inherit('Director', add_director, {
+director_m = api.inherit('Get director', add_director, {
     'id': fields.Integer()
 })
 
-director_update = api.model('Update', {
+director_update = api.model('Update director', {
     'id': fields.Integer()
 })
 

@@ -1,13 +1,14 @@
 """Module realize routing for genre resource"""
-import json
+
 import logging
 
 from flask_restx import Resource, Namespace, fields
 from flask_restx.errors import abort
 from marshmallow import ValidationError
 from flask import request
-from flaskr.utils import INVALID_DATA_JSON, INVALID_DATA_STR, LOGGER_NAME
 from flask_login import login_required
+from flaskr.utils import INVALID_DATA_JSON, INVALID_DATA_STR, LOGGER_NAME
+
 from flaskr.model.genre_schema import GenreSchema
 from flaskr.model.genre import Genre
 from flaskr import db
@@ -21,7 +22,7 @@ add_genre = api.model('Add genre', {
 genre_m = api.inherit('Genre', add_genre, {
     'id': fields.Integer()
 })
-genre_update = api.model('Update',{
+genre_update = api.model('Update genre',{
     'id': fields.Integer()
 })
 log = logging.getLogger(LOGGER_NAME)
@@ -48,7 +49,7 @@ class AllGenres(Resource):
             else 0
         if g_id:
             genre = Genre.query.get(g_id)
-            log.info("User tries to get genre instance id=%d" % g_id)
+            log.info("User tries to get genre instance id=%d", g_id)
             if not genre:
                 log.info("Genre instance not found")
                 return abort(404, error="Not found")

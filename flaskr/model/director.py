@@ -39,6 +39,7 @@ class Director(db.Model):
     last_name = db.Column(db.String(100), nullable=False)
     date_of_birth = db.Column(db.Date, nullable=False)
 
+
     @validates('first_name')
     def validate_first_name(self, key, first_name) -> str:
         """Validator for first name"""

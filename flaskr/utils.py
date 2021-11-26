@@ -9,7 +9,7 @@ class AppConfig:
     SQLALCHEMY_DATABASE_URI = "postgresql+pg8000://postgres:postgres_password@db_postgres/postgres"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY = "too secret"
-    LOGFILE = "/main.log"
+    LOGFILE = "main.log"
 
 
 MAX_BYTES = 1000000
@@ -17,9 +17,6 @@ B_COUNT = 3
 INVALID_DATA_JSON = {"error": "Data in user request is not valid"}
 INVALID_DATA_STR = "Data in user request is not valid"
 LOGGER_NAME = "main_logger"
-
-
-
 
 def get_logger_fact(name):
 

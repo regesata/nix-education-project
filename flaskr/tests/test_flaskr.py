@@ -5,6 +5,7 @@ import res
 
 
 def test_genre_post(client, auth_admin):
+    """Test cases for /genre post"""
     rv = client.post('/genre', data=json.dumps(res.genre_1), content_type='application/json')
     assert rv.json.get("title") == res.genre_1.get("title")
     rv = client.post('/genre', data=json.dumps(res.genre_2), content_type='application/json')
@@ -16,6 +17,7 @@ def test_genre_post(client, auth_admin):
 
 
 def test_genre_get(client, auth_admin):
+    """Test cases for /genre get"""
     client.post('/genre', data=json.dumps(res.genre_1), content_type='application/json')
     client.post('/genre', data=json.dumps(res.genre_5), content_type='application/json')
     rs = client.get('/genre')
@@ -31,6 +33,7 @@ def test_genre_get(client, auth_admin):
 
 
 def test_genre_put(client, auth_admin):
+    """Test cases for /genre put"""
     client.post('/genre', data=json.dumps(res.genre_5), content_type='application/json')
     rs = client.get('/genre')
     assert rs.json[0].get("title") == "comedy"
@@ -45,6 +48,7 @@ def test_genre_put(client, auth_admin):
 
 
 def test_genre_delete(client, auth_admin):
+    """Test cases for /genre delete"""
     rs = client.delete('/genre?genre_id=1')
     assert rs.status == "404 NOT FOUND"
     rv = client.post('/genre', data=json.dumps(res.genre_1), content_type='application/json')
@@ -55,6 +59,7 @@ def test_genre_delete(client, auth_admin):
 
 
 def test_director_post(client, auth_admin):
+    """Test cases for /director post"""
     rs = client.post('/director', data=json.dumps(res.director_1), content_type='application/json')
     assert rs.json.get("first_name") == "Katsu"
     rs = client.post('/director', data=json.dumps(res.director_4), content_type='application/json')
@@ -68,6 +73,7 @@ def test_director_post(client, auth_admin):
 
 
 def test_director_get(client, auth_admin):
+    """Test cases for /director get"""
     client.post('/director', data=json.dumps(res.director_1), content_type='application/json')
     rs = client.get('/director')
     assert rs.json[0].get("first_name") == "unknown"
@@ -79,6 +85,7 @@ def test_director_get(client, auth_admin):
 
 
 def test_director_put(client, auth_admin):
+    """Test cases for /director put"""
     client.post('/director', data=json.dumps(res.director_1), content_type='application/json')
     client.put('/director', data=json.dumps(res.director_3), content_type='application/json')
     rs = client.get('/director')
@@ -91,6 +98,7 @@ def test_director_put(client, auth_admin):
 
 
 def test_director_delete(client, auth_admin):
+    """Test cases for /director delete"""
     rs = client.delete('/director?director_id=1')
     assert rs.status == "403 FORBIDDEN"
     client.post('/director', data=json.dumps(res.director_1), content_type='application/json')
@@ -105,6 +113,7 @@ def test_director_delete(client, auth_admin):
 
 
 def test_role_get(client, auth_admin):
+    """Test cases for /role get"""
     rs = client.get('/role')
     assert rs.status == "200 OK"
     assert rs.json[0].get("title") == "Admin"
@@ -114,6 +123,7 @@ def test_role_get(client, auth_admin):
 
 
 def test_role_post(client, auth_admin):
+    """Test cases for /role post"""
     rs = client.post('/role', data=json.dumps(res.role_1), content_type='application/json')
     assert rs.json.get("title") == res.role_1.get("title")
     rs = client.post('/role', data=json.dumps(res.role_2), content_type='application/json')
@@ -123,6 +133,7 @@ def test_role_post(client, auth_admin):
 
 
 def test_role_put(client, auth_admin):
+    """Test cases for /role put"""
     rs = client.post('/role', data=json.dumps(res.role_1), content_type='application/json')
     assert rs.json.get("title") == res.role_1.get("title")
     client.put('/role', data=json.dumps(res.role_4), content_type='application/json')
@@ -131,6 +142,7 @@ def test_role_put(client, auth_admin):
 
 
 def test_role_delete(client, auth_admin):
+    """Test cases for /role delete"""
     client.post('/role', data=json.dumps(res.role_1), content_type='application/json')
     rs = client.get('/role?role_id=3')
     assert rs.json.get("title") == res.role_1.get("title")
@@ -144,7 +156,7 @@ def test_role_delete(client, auth_admin):
 
 
 def test_movie_get_all(client, auth_user, add_movie):
-
+    """Test case for /movie get gets all data"""
     rs = client.get('/movie')
     assert rs.json[0].get("title") == "Interstellar"
     for item in rs.json[0].get("genre"):
@@ -157,6 +169,7 @@ def test_movie_get_all(client, auth_user, add_movie):
 
 
 def test_movie_search(client, auth_user, add_movie):
+    """Test case for /movie get with search"""
     rs = client.get('/movie?search=ste')
     assert rs.json[0].get("title") == "Interstellar"
     rs = client.get('/movie?search=ax')
@@ -164,7 +177,7 @@ def test_movie_search(client, auth_user, add_movie):
 
 
 def test_movie_filer(client, auth_user, add_movie):
-
+    """Test case for /movie get with filtering"""
     rs = client.get("/movie?genre_filter=Drama")
     assert rs.json[0].get("title") == "Interstellar"
     rs = client.get("/movie?genre_filter=Action")
@@ -172,6 +185,7 @@ def test_movie_filer(client, auth_user, add_movie):
 
 
 def test_movie_year_filter(client, auth_user, add_movie):
+    """Test case for /movie get with filtering by range years"""
     rs = client.get('/movie?release_date_start_filter=1970&release_date_end_filter=1990')
     assert rs.json[0].get("title") == "Mad Max"
     rs = client.get('/movie?release_date_start_filter=1990&release_date_end_filter=2020')
@@ -182,6 +196,7 @@ def test_movie_year_filter(client, auth_user, add_movie):
 
 
 def test_movie_director_filter(client, add_movie, auth_admin):
+    """Test case for /movie get with filtering by director last name"""
     rs = client.get('/movie?director_filter=Nolan')
     assert rs.json[0].get("title") == "Interstellar"
     rs = client.get('/movie?director_filter=Miller')
@@ -191,6 +206,7 @@ def test_movie_director_filter(client, add_movie, auth_admin):
 
 
 def test_movie_ordering(client, auth_user, add_movie):
+    """Test case for /movie get with ordering"""
     rs = client.get('/movie?rate_order=True')
     assert rs.json[0].get("title") == "Mad Max"
     rs = client.get('/movie?date_order=True')
@@ -198,6 +214,7 @@ def test_movie_ordering(client, auth_user, add_movie):
 
 
 def test_movie_put(client, add_movie, auth_user):
+    """Test case for /movie put"""
     client.put('/movie', data=json.dumps({"id": 1, "title": "new Interstellar"}),
                content_type='application/json')
     rs = client.get('/movie')
@@ -218,12 +235,14 @@ def test_movie_put(client, add_movie, auth_user):
 
 
 def test_movies_put(client, add_movie_adm, auth_user):
+    """Test case for /movie put with different user"""
     rs = client.put('/movie', data=json.dumps({"id": 1, "title": "new Interstellar"}),
                content_type='application/json')
     assert rs.json.get("error") == "Cant edit. This record added by another user"
 
 
 def test_delete_movie(client, add_movie, auth_user):
+    """Test case for /movie delete"""
     rs = client.delete('/movie?movie_id=1')
     assert rs.status == "204 NO CONTENT"
     rs = client.delete('/movie?movie_id=10')
@@ -232,11 +251,13 @@ def test_delete_movie(client, add_movie, auth_user):
 
 
 def test_movie_delete_user_restriction(client, add_movie_adm, auth_user):
+    """Test case for /movie delete with user restriction"""
     rs = client.delete('/movie?movie_id=1')
     assert rs.json.get("error") == "Cant delete. Record added by another user"
 
 
 def test_user_login(client):
+    """Test case for /login"""
     rs = client.post('/login', data=json.dumps(res.user_admin),
                      content_type='application/json')
     assert rs.json.get("message") == "Authorized successfully"
@@ -249,12 +270,14 @@ def test_user_login(client):
 
 
 def test_logout(client, auth_admin):
+    """Test case for /logout"""
     rs = client.get('/logout')
     assert rs.json.get("message") == "Logout Successfully"
     assert rs.status == "200 OK"
 
 
 def test_signup(client):
+    """Test case for /signup"""
     rs = client.post('/signup', data=(json.dumps(res.user)),
                      content_type='application/json')
     assert rs.json.get("message") == "User create"
@@ -277,62 +300,3 @@ def test_signup(client):
                      content_type='application/json')
     assert rs.json.get("error") == "Empty password"
     assert rs.status == "400 BAD REQUEST"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

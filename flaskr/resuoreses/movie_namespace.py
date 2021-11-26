@@ -4,9 +4,9 @@ import logging
 from flask_restx import Resource, Namespace, fields
 from flask_restx.errors import abort
 from flask import request
+from flask_login import login_required, current_user
 from marshmallow.exceptions import ValidationError
 from flaskr.utils import INVALID_DATA_JSON, INVALID_DATA_STR, LOGGER_NAME
-from flask_login import login_required, current_user
 from flaskr.model.movie import Movie
 from flaskr.model.genre import Genre
 from flaskr.model.director import Director
@@ -73,22 +73,25 @@ class AllMovies(Resource):
         Uses pagination from flask-sqlalchemy
         """
         # pagination
+        flag = False
         log.info("User tries to get movies")
         page = int(request.args.get("page")) \
             if request.args.get("page") else PAGE_DEFAULT
         per_page = PER_PAGE_DEFAULT
-        movie = Movie.query # Basic query
+        movie = Movie.query  # Basic query
         # movie title search
         search_key_word = request.args.get("search")
         if search_key_word:  # applying search
             movie = movie.filter(Movie.title.like("%"+search_key_word+"%"))
-            log.info("Search by title, keyword, %s" % search_key_word)
+            flag = False
+            log.info("Search by title, keyword, %s", search_key_word)
 
 
         genre_filter = request.args.get("genre_filter")
         if genre_filter: # filtering by genre
             movie = movie.join(Movie.genre).filter(Genre.title == genre_filter)
-            log.info("Filter by genre, %s" % genre_filter)
+            flag = False
+            log.info("Filter by genre, %s", genre_filter)
 
         # filtering by release year range
         date_start = request.args.get("release_date_start_filter")
@@ -99,30 +102,39 @@ class AllMovies(Resource):
             date_end = datetime.date(int(date_end), 12, 31)
         if bool(date_end) and bool(date_start):
             movie = movie.filter(Movie.release_date.between(date_start, date_end))
-            log.info("Filter by years, %s - %s" % (date_start.year, date_end.year))
+            flag = False
+            log.info("Filter by years, %s - %s", date_start.year, date_end.year)
 
         # filtering by director last name
         director_filter = request.args.get("director_filter")
         if director_filter:
             movie = movie.join(Movie.director).filter(
              Director.last_name == director_filter)
-            log.info("Filter by director last name %s" % director_filter)
+            flag = False
+            log.info("Filter by director last name %s", director_filter)
         # ordering
         rate_order = request.args.get("rate_order")
         date_order = request.args.get("date_order")
         if rate_order and date_order: # both ordering
             movie = movie.order_by(Movie.rate, Movie.release_date)
+            flag = False
             log.info("Ordering by rate and date")
         elif rate_order:
             movie = movie.order_by(Movie.rate)
+            flag = False
             log.info("Ordering by rate only")
         elif date_order:
             movie = movie.order_by(Movie.release_date)
+            flag = False
             log.info("Ordering by date only")
         # paginator object
-        paginator = movie.paginate(page, per_page)
-        log.info("Return movies, page=%d" % page)
+        if flag:
+            paginator = movie.order_by(Movie.id).paginate(page, per_page)
+        else:
+            paginator = movie.paginate(page, per_page)
+        log.info("Return movies, page=%d", page)
         return movie_schm.dump(paginator.items, many=True)
+
 
     @login_required
     @api.expect(movie_add_model)
@@ -167,7 +179,7 @@ class AllMovies(Resource):
             movie.rate = rate
             db.session.add(movie)
             db.session.commit()
-            log.info("Successfully added movie, %s" % movie.title)
+            log.info("Successfully added movie, %s", movie.title)
             return movie_schm.dump(movie), 201
         except ValidationError:
             log.exception(INVALID_DATA_STR)
@@ -189,11 +201,11 @@ class AllMovies(Resource):
         log.info("User tries to update movie")
         movie = Movie.query.get(request.json.get("id"))
         if not movie:
-            log.info("Movie id=%d not found" % request.get_json().get("id"))
+            log.info("Movie id=%d not found", request.get_json().get("id"))
             return abort(404, error="Not found")
         if movie.user_id != current_user.id and current_user.role_id != 1 :
-            log.info("User id=%d tries to update movie added by id=%d" % (current_user.id,
-                     movie.user_id))
+            log.info("User id=%d tries to update movie added by id=%d", current_user.id,
+                     movie.user_id)
             return abort(403, error="Cant edit. This record added by another user")
         directors = request.get_json().get("director")
         if directors:
@@ -205,7 +217,7 @@ class AllMovies(Resource):
 
             db.session.add(movie)
             db.session.commit()
-            log.info("Successfully updated id=%d" % movie.id)
+            log.info("Successfully updated id=%d", movie.id)
             return movie_schm.dump(movie), 200
         except ValidationError:
             log.exception(INVALID_DATA_STR)
@@ -224,16 +236,16 @@ class AllMovies(Resource):
     def delete(self):
         """Deletes movie record"""
         m_id =  int(request.args.get("movie_id"))
-        log.info("User tries to delete movie id=%d" % m_id)
+        log.info("User tries to delete movie id=%d", m_id)
         movie = Movie.query.get(m_id)
         if not movie:
             log.info("Movie not found")
             return abort(404,error="Not found")
         if current_user.id != movie.user_id:
-            log.info("User id=%d tries to delete movie added by id=%d" % (current_user.id,
-                     movie.user_id))
+            log.info("User id=%d tries to delete movie added by id=%d", current_user.id,
+                     movie.user_id)
             return abort(403, error="Cant delete. Record added by another user")
         db.session.delete(movie)
         db.session.commit()
-        log.info("Successfully deleted id=%d" % movie.id)
+        log.info("Successfully deleted id=%d", movie.id)
         return '', 204

@@ -3,24 +3,30 @@ version: "3.8"
 services:
 
   db_postgres:
-    image: postgres:13.2
+    image: postgres:13-alpine
     restart: always
-    env_file:
-      - flaskr/env/.env_flask.list
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres_password
+      - POSTGRES_DB=postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - dbdata:/var/lib/postgresql/data
     ports:
       - "5433:5432"
 
   flask_app:
     build: flaskr/
     restart: on-failure
-    env_file:
-      - flaskr/env/.env_flask.list
+    command: sh -c 'while ! nc -z db_postgres 5432; do sleep 1; done;  gunicorn --bind 0.0.0.0:8000 flaskr.main:app'
+    environment:
+      - FLASK_APP=main
+      - FLASK_ENV=development
+      - PYTHONPATH=/
     ports:
       - "8000:8000"
     depends_on:
-      - "db_postgres"
+      - db_postgres
 
   nginx:
     image: nginx
@@ -32,9 +38,7 @@ services:
       - ./flaskr/nginx:/etc/nginx/conf.d
 
 
-
-
 volumes:
 
-  db-data:
+  dbdata:
 
