@@ -8,7 +8,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV FLASK_APP = main.py
 
-EXPOSE 5000
+
+
 
 RUN pip install pipenv
 RUN apk add build-base
@@ -20,10 +21,9 @@ COPY ./Pipfile.lock .
 RUN  pipenv install --system --deploy
 
 # copy project
-COPY . .
+COPY . /flaskr
+EXPOSE 8000
 
 RUN chmod u+x ./migrate.sh
 ENTRYPOINT ["./migrate.sh"]
-
-
 
